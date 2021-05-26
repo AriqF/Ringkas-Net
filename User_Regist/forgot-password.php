@@ -26,7 +26,7 @@
                                     <a href="signUp">saya belum memiliki akun</a>
                                     <div class="w-100"></div>
                                     <button name="login-btn" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="startbtn" style="margin-top: 10px;">
-                                        Login
+                                        Kirim
                                     </button>
                                 </div>
                             </form>
