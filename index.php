@@ -35,8 +35,8 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services" onclick="serviceBoxAnim()">Sedang Populer</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about" onclick="aboutBoxAnim()">Tentang Kami</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact" onclick="contactBoxAnim()">Kontak</a></li>
-                        <li class="nav-item"><a class="nav-link" href="User_Regist/signIn.php">Masuk</a></li>
-                        <li class="nav-item"><a class="nav-link" href="User_Regist/signUp.php">Daftar</a></li>
+                        <li class="nav-item"><a class="nav-link" href="User_Regist/signIn">Masuk</a></li>
+                        <li class="nav-item"><a class="nav-link" href="User_Regist/signUp">Daftar</a></li>
                     </ul>
                 </div>
             </div>
@@ -262,7 +262,7 @@
                 denyButtonText: `Belum`,
                 }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location = "User_Regist/signIn.php";
+                    window.location = "User_Regist/signIn";
                 } else if (result.isDenied) {
                     Swal.fire({
                     icon: 'question',
@@ -272,7 +272,7 @@
                     CancelButtonText: `Nanti Saja`,
                     }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location = "User_Regist/signUp.php";
+                        window.location = "User_Regist/signUp";
                     } 
                     })
                 }
