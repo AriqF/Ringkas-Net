@@ -1,0 +1,9 @@
+#For those who search document that's not included
+ErrorDocument 404 http://localhost/Mokarya/User_Regist/404
+#Delete .php Extension
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php
+</IfModule>
