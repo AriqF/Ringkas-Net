@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Register Page</title>
+        <title>Daftar Ringkas.Net</title>
         <?php
             include 'header-signin.php';
         ?>

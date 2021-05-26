@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login AdoptMe</title>
+        <title>Lupa Password Ringkas.Net</title>
         <?php
             include 'header-signin.php';
         ?>

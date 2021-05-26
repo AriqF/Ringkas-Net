@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Login AdoptMe</title>
+        <title>Masuk Ringkas.Net</title>
         <?php
             include 'header-signin.php';
         ?>
