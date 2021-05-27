@@ -51,7 +51,7 @@
                                 <input type="password" class="form-control" name="passwordConf" placeholder="confirm password">
 
                               
-                                <input type="hidden" class="form-control" name="usertype" value="user">
+                                <input type="hidden" class="form-control" name="usertype" value="1">
 
                                 <div class="col text-center" style="margin-top: 15px;">
                                     <a href="signIn">saya sudah memiliki akun &#10003;</a>
