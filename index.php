@@ -169,7 +169,7 @@
                     </div>
                     <div class="col-lg-4 mr-auto text-center">
                         <i class="fas fa-envelope fa-3x mb-3 icontact"></i>
-                        <a class="d-block text-decoration-none" style="color: white;">project.ringkasnet@gmail.com</a>
+                        <a class="d-block text-decoration-none" style="color: white;">netringkas@gmail.com</a>
                     </div>
                 </div>
             </div>

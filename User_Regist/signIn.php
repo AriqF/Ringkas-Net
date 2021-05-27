@@ -1,3 +1,12 @@
+<?php
+ require_once 'controllers/authController.php';
+
+  if (isset($_SESSION['uid'])) {
+    header('location:history.go(-1)'); 
+    exit();
+  }
+
+  ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,7 +14,7 @@
         <?php
             include 'header-signin.php';
         ?>
-        <form form class="form" action="login" method="post">
+        <form form class="form" action="signIn" method="post">
         <div class="content">
             <div class="container slideBoxAnim" id="box" style="padding: 0; margin-top: 20px;">
                 <div class="row">
@@ -18,7 +27,7 @@
                             <hr style="margin-bottom: 36px;">
                             <div class="w-100"></div>
                             <form>
-                                <label class="label control-label">username</label>
+                                <label class="label control-label">Username atau Email</label>
                                 <input type="text" class="form-control" name="username" placeholder="username">
                                 <label class="label control-label">Password</label>
                                 <input type="password" class="form-control" name="password" placeholder="password">

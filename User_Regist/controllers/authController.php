@@ -8,19 +8,19 @@ require_once 'emailController.php';
 
 $errors = array();
 $namalengkap = "";
+$username = "";
 $email = "";
-$nim = "";
-$angkatan = "";
-$kelas = "";
+$dateofbirth = "";
+$phone_number = "";
 $usertype = "";
 
 // if user click sign up button
 if (isset($_POST['signup-btn'])) {
     $namalengkap = $_POST['namalengkap'];
+    $username = $_POST['username'];
     $email = $_POST['email'];
-    $nim = $_POST['nim'];
-    $angkatan = $_POST['angkatan'];
-    $kelas = $_POST['kelas'];
+    $dateofbirth = date('Y-m-d', strtotime($_POST['dateofbirth']));
+    $phone_number = $_POST['phone_number'];
     $password = $_POST['password'];
     $passwordConf = $_POST['passwordConf'];
     $usertype = $_POST['usertype'];
@@ -29,21 +29,22 @@ if (isset($_POST['signup-btn'])) {
     if (empty($namalengkap)) {
     $errors['namalengkap'] = "<font color='red'; > Nama lengkap Required </font>";
     }
+    if (empty($username)) {
+    $errors['username'] = "<font color='red'; > Username Required </font>";
+    }
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errors['email'] = "<font color='red'; > Email Address Is Invalid </font>";
     }
     if (empty($email)) {
         $errors['email'] = "<font color='red'; > Email Required </font>";
     }
-    if (empty($nim)) {
-    $errors['nim'] = "<font color='red'; > NIM Required </font>";
+    if (empty($dateofbirth)) {
+    $errors['dateofbirth'] = "<font color='red'; > Tanggal Lahir Required </font>";
     }
-    if (empty($angkatan)) {
-    $errors['angkatan'] = "<font color='red'; > Angkatan Required </font>";
+    if (empty($phone_number)) {
+    $errors['phone_number'] = "<font color='red'; > Nomor Telp Required </font>";
     }
-    if (empty($kelas)) {
-    $errors['kelas'] = "<font color='red'; > Kelas Required </font>";
-    }
+
     if (empty($password)) {
         $errors['password'] = "<font color='red'; > Password Required </font>";
     }
@@ -52,7 +53,7 @@ if (isset($_POST['signup-btn'])) {
     }
 
 
-    $namalengkapQuery = "SELECT * FROM users WHERE namalengkap=? LIMIT 1";
+    $namalengkapQuery = "SELECT * FROM user WHERE namalengkap=? LIMIT 1";
     $stmt = $conn->prepare($namalengkapQuery);
     $stmt->bind_param('s',$namalengkap);
     $stmt->execute();
@@ -60,7 +61,19 @@ if (isset($_POST['signup-btn'])) {
     $userCount = $result->num_rows;
     $stmt->close();
 
-    $emailQuery = "SELECT * FROM users WHERE email=? LIMIT 1";
+    $usernameQuery = "SELECT * FROM user WHERE username=? LIMIT 1";
+    $stmt = $conn->prepare($usernameQuery);
+    $stmt->bind_param('s',$username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $userCount = $result->num_rows;
+    $stmt->close();
+
+    if ($userCount > 0) {
+        $errors['username'] = "<font color='red'; > Username sudah di pakai </font>";
+    }
+
+    $emailQuery = "SELECT * FROM user WHERE email=? LIMIT 1";
     $stmt = $conn->prepare($emailQuery);
     $stmt->bind_param('s',$email);
     $stmt->execute();
@@ -72,49 +85,41 @@ if (isset($_POST['signup-btn'])) {
         $errors['email'] = "<font color='red'; > Email sudah di pakai </font>";
     }
     
-    $nimQuery = "SELECT * FROM users WHERE nim=? LIMIT 1";
-    $stmt = $conn->prepare($nimQuery);
-    $stmt->bind_param('s',$nim);
+    $dateofbirthQuery = "SELECT * FROM user WHERE dateofbirth=? LIMIT 1";
+    $stmt = $conn->prepare($dateofbirthQuery);
+    $stmt->bind_param('s',$dateofbirth);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $userCount = $result->num_rows;
+    $stmt->close();
+
+    $phone_numberQuery = "SELECT * FROM user WHERE phone_number=? LIMIT 1";
+    $stmt = $conn->prepare($phone_numberQuery);
+    $stmt->bind_param('s',$phone_number);
     $stmt->execute();
     $result = $stmt->get_result();
     $userCount = $result->num_rows;
     $stmt->close();
 
     if ($userCount > 0) {
-        $errors['nim'] = "<font color='red'; > NIM sudah di pakai </font>";
+        $errors['phone_number'] = "<font color='red'; >Nomor Telp sudah di pakai </font>";
     }
 
-    $angkatanQuery = "SELECT * FROM users WHERE angkatan=? LIMIT 1";
-    $stmt = $conn->prepare($angkatanQuery);
-    $stmt->bind_param('s',$angkatan);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $userCount = $result->num_rows;
-    $stmt->close();
-
-
-    $kelasQuery = "SELECT * FROM users WHERE kelas=? LIMIT 1";
-    $stmt = $conn->prepare($kelasQuery);
-    $stmt->bind_param('s',$kelas);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $userCount = $result->num_rows;
-    $stmt->close();
 
     if (count($errors) === 0){
         $password = password_hash($password, PASSWORD_DEFAULT);
         $token =  bin2hex(random_bytes(50));
         $verified = FALSE;
 
-        $sql = "INSERT INTO users (namalengkap, email, nim, angkatan, kelas, verified, token, password,usertype) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO user (namalengkap, username, email, dateofbirth, phone_number, password, usertype, token, verified) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param('sssssbsss', $namalengkap, $email, $nim, $angkatan, $kelas, $verified, $token, $password, $usertype);
+        $stmt->bind_param('ssssssssb', $namalengkap, $username, $email, $dateofbirth, $phone_number, $password, $usertype, $token, $verified);
 
         if ($stmt->execute()) {
         //login user automatic
         $user_id = $conn->insert_id;
-        $_SESSION['id'] = $user_id;
-        $_SESSION['namalengkap'] = $namalengkap;
+        $_SESSION['uid'] = $user_id;
+        $_SESSION['username'] = $username;
         $_SESSION['email'] = $email;
         $_SESSION['verified'] = $verified;
 
@@ -136,7 +141,7 @@ if (isset($_POST['signup-btn'])) {
 // if user click login button
 if (isset($_POST['login-btn'])) {
     //$namalengkap = $_POST['namalengkap'];
-    $nim = $_POST['nim'];
+    $username = $_POST['username'];
     $password = $_POST['password'];
     $usertype = $_POST['usertype'];
 
@@ -144,17 +149,17 @@ if (isset($_POST['login-btn'])) {
     // if (empty($namalengkap)) {
     // $errors['namalengkap'] = "<font color='red'; > namalengkap Required </font>";
     // }
-    if (empty($nim)) {
-    $errors['nim'] = "<font color='red'; > NIM Required </font>";
+    if (empty($username)) {
+    $errors['username'] = "<font color='red'; > Username Required </font>";
     }
     if (empty($password)) {
         $errors['password'] =  "<font color='red'; > Password Required </font>";
     }
 
     if (count($errors) === 0) {
-      $sql = "SELECT * FROM users WHERE email=? OR nim=? AND usertype=? LIMIT 1"; //namalengkap=? 
+      $sql = "SELECT * FROM user WHERE email=? OR username=? AND usertype=? LIMIT 1"; //namalengkap=? 
       $stmt = $conn->prepare($sql);
-      $stmt->bind_param('sss', $nim, $nim, $usertype); //$namalengkap
+      $stmt->bind_param('sss', $username, $username, $usertype); //$namalengkap
       $stmt->execute();
       $result = $stmt->get_result();
       $user = $result->fetch_assoc();
@@ -166,12 +171,11 @@ if (isset($_POST['login-btn'])) {
             {
                 //login sucess
                 $_SESSION['usertype'] = "admin";
-                $_SESSION['id'] = $user['id'];
+                $_SESSION['uid'] = $user['uid'];
                 $_SESSION['namalengkap'] = $user['namalengkap'];
+                $_SESSION['username'] = $user['username'];
                 $_SESSION['email'] = $user['email'];
-                $_SESSION['nim'] = $user['nim']; //namalengkap
-                $_SESSION['angkatan'] = $user['angkatan'];
-                $_SESSION['kelas'] = $user['kelas'];
+                $_SESSION['phone_number'] = $user['phone_number'];
                 $_SESSION['verified'] = $user['verified'];
                 // flash message
                 $_SESSION['message'] = "You are now logged in";
@@ -184,12 +188,11 @@ if (isset($_POST['login-btn'])) {
             {
                 //login sucess
                 $_SESSION['usertype'] = "user";
-                $_SESSION['id'] = $user['id'];
+                $_SESSION['uid'] = $user['uid'];
                 $_SESSION['namalengkap'] = $user['namalengkap'];
-                $_SESSION['email'] = $user['email'];
-                $_SESSION['nim'] = $user['nim']; //namalengkap
-                $_SESSION['angkatan'] = $user['angkatan'];
-                $_SESSION['kelas'] = $user['kelas'];
+                $_SESSION['username'] = $user['username'];
+                $_SESSION['email'] = $user['email']; 
+                $_SESSION['phone_number'] = $user['phone_number'];
                 $_SESSION['verified'] = $user['verified'];
                 // flash message
                 $_SESSION['message'] = "You are now logged in";
@@ -211,12 +214,11 @@ if (isset($_POST['login-btn'])) {
 //logout user
 if (isset($_GET['logout'])) {
     session_destroy();
-    unset($_SESSION['id']);
+    unset($_SESSION['uid']);
     unset($_SESSION['namalengkap']);
+    unset($_SESSION['username']);
     unset($_SESSION['email']);
-    unset($_SESSION['nim']);
-    unset($_SESSION['angkatan']);
-    unset($_SESSION['kelas']);
+    unset($_SESSION['phone_number']);
     unset($_SESSION['verified']);
     header('location:../');
     exit();
@@ -228,21 +230,20 @@ if (isset($_GET['logout'])) {
 function verifyUser($token)
 {
     global $conn;
-    $sql = "SELECT * FROM users WHERE token='$token' LIMIT 1";
+    $sql = "SELECT * FROM user WHERE token='$token' LIMIT 1";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) > 0) {
         $user = mysqli_fetch_assoc($result);
-        $update_query = "UPDATE users SET verified=1 WHERE token='$token' ";
+        $update_query = "UPDATE user SET verified=1 WHERE token='$token' ";
 
         if (mysqli_query($conn, $update_query)) {
             // log user in
-            $_SESSION['id'] = $user['id'];
+            $_SESSION['uid'] = $user['uid'];
             $_SESSION['namalengkap'] = $user['namalengkap'];
             $_SESSION['email'] = $user['email'];
-            $_SESSION['nim'] = $user['nim'];
-            $_SESSION['angkatan'] = $user['angkatan'];
-            $_SESSION['kelas'] = $user['kelas'];
+            $_SESSION['username'] = $user['username'];
+            $_SESSION['phone_number'] = $user['phone_number'];
             $_SESSION['verified'] = 1;
             // flash message
             $_SESSION['message'] = "Your Email was Succesfully verified";
@@ -267,7 +268,7 @@ if (isset($_POST['forgot-password'])) {
         $errors['email'] = "<font color='red'; > Email Required </font>";
     }
     if (count($errors) === 0) {
-        $sql = "SELECT * FROM users WHERE email='$email' LIMIT 1";
+        $sql = "SELECT * FROM user WHERE email='$email' LIMIT 1";
         $result = mysqli_query($conn, $sql);
         $user = mysqli_fetch_assoc($result);
         $token = $user['token'];
@@ -295,7 +296,7 @@ if (isset($_POST['reset-password-btn'])) {
     $email = $_SESSION['email'];
 
     if (count($errors) === 0) {
-        $sql = "UPDATE users SET password='$password' WHERE email='$email'";
+        $sql = "UPDATE user SET password='$password' WHERE email='$email'";
         $result = mysqli_query($conn, $sql);
         if ($result) {
             header('location: login');
@@ -308,7 +309,7 @@ if (isset($_POST['reset-password-btn'])) {
 function resetPassword($token) 
 {
     global $conn;
-    $sql = "SELECT * FROM users WHERE token='$token' LIMIT 1";
+    $sql = "SELECT * FROM user WHERE token='$token' LIMIT 1";
     $result = mysqli_query($conn, $sql);
     $user = mysqli_fetch_assoc($result);
     $_SESSION['email'] = $user['email'];

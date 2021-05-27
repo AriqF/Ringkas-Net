@@ -9,8 +9,8 @@ require_once 'config/constants.php';
 
 // Create the Transport
 $transport = (new Swift_SmtpTransport('smtp.gmail.com', 465, 'ssl'))
-  ->setUsername("mokaryad4@gmail.com")
-  ->setPassword("mokarya.123");
+  ->setUsername("netringkas@gmail.com")
+  ->setPassword("ringkasnet.123");
 
 // Create the Mailer using your created Transport
 $mailer = new Swift_Mailer($transport);
@@ -34,7 +34,7 @@ function SendVerificationEmail($userEmail, $token)
                 Selamat! tinggal satu klik lagi akun anda akan terverifikasi, silahkan klik tautan dibawah untuk verifikasi
                 dan masuk ke dalam website
             </p>
-            <a href="http://localhost/Mokarya/User_Regist/index1.php?token=' . $token . '">
+            <a href="http://localhost/Ringkas-Net/User_Regist/index1.php?token=' . $token . '">
                 Verifikasi Email anda
             </a>
         </div>
@@ -44,8 +44,8 @@ function SendVerificationEmail($userEmail, $token)
 
     // Create a message
     $message = (new Swift_Message('Verifikasi Email anda'))
-    ->setFrom(['mokaryad4@gmail.com' => 'Mokarya'])
-    ->setSubject('<noreply@mokaryad4.com>')
+    ->setFrom(['netringkas@gmail.com' => 'Ringkas-Net'])
+    ->setSubject('<noreply@netringkas.com>')
     ->setTo($userEmail)
     ->setBody($body, 'text/html');
 
@@ -73,7 +73,7 @@ function SendPasswordResetLink($userEmail, $token)
                 Silahkan klik tautan dibawah untuk masuk kedalam halaman khusus untuk mereset 
                 password anda
             </p>
-            <a href="http://localhost/Mokarya/User_Regist/index1.php?password-token=' . $token . '">
+            <a href="http://localhost/Ringkas-Net/User_Regist/index1.php?password-token=' . $token . '">
                 Reset password
             </a>
         </div>
@@ -83,8 +83,8 @@ function SendPasswordResetLink($userEmail, $token)
 
     // Create a message
     $message = (new Swift_Message('Permintaan reset password'))
-    ->setFrom(['mokaryad4@gmail.com' => 'Mokarya'])
-    ->setSubject('<noreply@mokaryad4.com>')
+    ->setFrom(['netringkas@gmail.com' => 'Ringkas-Net'])
+    ->setSubject('<noreply@netringkas.com>')
     ->setTo($userEmail)
     ->setBody($body, 'text/html');
 
