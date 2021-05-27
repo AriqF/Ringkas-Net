@@ -39,7 +39,7 @@
                                     <a href="signUp">saya belum memiliki akun</a> <a href="forgot-password"> / lupa password?</a>
                                     <div class="w-100"></div>
                                     <button name="login-btn" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="startbtn" style="margin-top: 10px;">
-                                        Login
+                                        Masuk
                                     </button>
                                 </div>
                             </form>

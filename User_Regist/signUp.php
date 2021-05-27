@@ -57,7 +57,7 @@
                                     <a href="signIn">saya sudah memiliki akun &#10003;</a>
                                     <div class="w-100"></div>
                                     <button name="signup-btn" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="startbtn" style="margin-top: 10px;">
-                                        Sign Up
+                                        Daftar
                                     </button>
                                 </div>
                             </form>
