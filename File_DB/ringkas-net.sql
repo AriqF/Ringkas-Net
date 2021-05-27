@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2021 at 09:09 AM
+-- Generation Time: May 27, 2021 at 08:41 AM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.15
 
@@ -18,21 +18,21 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `ringkasin-net`
+-- Database: `ringkas-net`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `berita`
+-- Table structure for table `blog`
 --
 
-CREATE TABLE `berita` (
-  `id_berita` int(11) NOT NULL,
+CREATE TABLE `blog` (
+  `id_blog` int(11) NOT NULL,
   `uid` int(11) NOT NULL,
   `judul` varchar(50) NOT NULL,
   `penulis` varchar(40) NOT NULL,
-  `isi_berita` text NOT NULL,
+  `isi_blog` text NOT NULL,
   `gambar` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -73,10 +73,10 @@ CREATE TABLE `user` (
 --
 
 --
--- Indexes for table `berita`
+-- Indexes for table `blog`
 --
-ALTER TABLE `berita`
-  ADD PRIMARY KEY (`id_berita`),
+ALTER TABLE `blog`
+  ADD PRIMARY KEY (`id_blog`),
   ADD KEY `uid` (`uid`);
 
 --
@@ -96,10 +96,10 @@ ALTER TABLE `user`
 --
 
 --
--- AUTO_INCREMENT for table `berita`
+-- AUTO_INCREMENT for table `blog`
 --
-ALTER TABLE `berita`
-  MODIFY `id_berita` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `blog`
+  MODIFY `id_blog` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `rating`
@@ -118,10 +118,10 @@ ALTER TABLE `user`
 --
 
 --
--- Constraints for table `berita`
+-- Constraints for table `blog`
 --
-ALTER TABLE `berita`
-  ADD CONSTRAINT `berita_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `blog`
+  ADD CONSTRAINT `blog_ibfk_1` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
