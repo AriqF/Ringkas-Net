@@ -1,0 +1,92 @@
+
+.pagehead{
+    background-image: url("../img/404.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-weight: lighter;
+  }
+  .error__title {
+    font-size: 10em;
+    color: #CBCBCB;
+  }
+  .error__subtitle {
+    font-size: 2em;
+  }
+  
+  .error__description {
+    opacity: 0.5;
+  }
+  .btn{
+    margin: 7px 5px;
+  }
+  #btn-login{
+    background-color: #f66f65;
+    color: white;
+    padding: 10px 24px;
+    font-family: 'Poppins', sans-serif;
+  }
+  #btn-login:hover{
+    background-color: #F85B4F;
+  }
+  #btn-home{
+    background-color: #FCFBFB;
+    color: black;
+    padding: 10px 30px;
+    font-family: 'Poppins', sans-serif;
+  }
+  #btn-home:hover{
+    background-color: #DED4D4;
+  }
+  .star {
+    background: grey;
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    content: '';
+    border-radius: 100%;
+    transform: rotate(250deg);
+    opacity: 0.4;
+    animation-name: shimmer;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  }
+  
+  @keyframes shimmer {
+    from {opacity: 0;}
+    to {opacity: 0.7;}
+  }
+  
+  .star1 {
+    top: 40%;
+    left: 50%;
+    animation-delay: 1s;
+  }
+  
+  .star2 {
+    top: 60%;
+    left: 90%;
+    animation-delay: 3s;
+  }
+  
+  .star3 {
+    top: 10%;
+    left: 70%;
+    animation-delay: 2s;
+  }
+  
+  .star4 {
+    top: 90%;
+    left: 40%;
+  }
+  
+  .star5 {
+    top: 20%;
+    left: 30%;
+    animation-delay: 0.5s;
+  }
+  
