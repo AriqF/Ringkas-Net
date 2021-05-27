@@ -62,6 +62,15 @@ body {
 [tabindex="-1"]:focus {
   outline: 0 !important; }
 
+/* start of custom code */
+
+.sign{
+  margin-top: 5px;
+  font-size: 16px;
+  color: white;
+}
+
+/* end of custom code */
 hr {
   -webkit-box-sizing: content-box;
   box-sizing: content-box;

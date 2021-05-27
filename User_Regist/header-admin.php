@@ -27,7 +27,11 @@
 	        </button>
         </div>
         <div class="p-4">
-            <h1><a href="index.html" class="logo">Ringkasin.Net <span>Dimana Inspirasi Berada</span></a></h1>
+            <h1><a href="index.html" class="logo">Ringkas.Net <span>Dimana Inspirasi Berada</span></a></h1>
+			<hr style="border-top: 1px solid white; margin-bottom: 12px;">
+			<h4 style="color: white;">Selamat Datang!</h4>
+			<p class="sign">#Username</p> <!--add username-->
+			
 	        <ul class="list-unstyled components mb-5">
 	          <li>
                 <a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
@@ -39,13 +43,16 @@
                 <a href="#"><i class="fas fa-folder-open"></i> Data Blog</a>
 	          </li>
 	          <li>
-                <a href="#"><i class="fas fa-users"></i> Data Users</a>
+                <a href="#"><i class="fas fa-users"></i> Data Pengguna</a>
 	          </li>
 	          <li>
-                <a href="#"><i class="fas fa-star-half-alt"></i> Reviews</a>
+                <a href="#"><i class="fas fa-star-half-alt"></i> Data Penilaian</a>
 	          </li>
 	          <li>
-                <a href="#"><i class="fas fa-id-card"></i> Profile </a>
+                <a href="#"><i class="fas fa-id-card"></i> Profil</a>
+	          </li>
+			  <li>
+                <a href="index1?logout=1"><i class="fas fa-sign-out-alt"></i> Keluar</a>
 	          </li>
 	        </ul>
         </div>
