@@ -5,9 +5,6 @@ body{
   font-family: 'Poppins', sans-serif;
 }
 .pagehead{
-  /*if bg img not available*/
-  background-color: #FAD961;
-  background-image: linear-gradient(13deg, #FAD961 43%, #F76B1C 100%);
   background-image: url("../img/index-bg.jpg");
   height: 100%;
   background-position: center;
