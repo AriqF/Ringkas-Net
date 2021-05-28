@@ -31,7 +31,7 @@
                 <div class="error__subtitle">Halaman Tidak Ditemukan!</div>
                 <div class="error__description">Mohon Cek Kembali Penulisan Anda..</div>
                 <a role="button" href="signIn" class="btn" id="btn-login">Login</button>
-                <a role="button" href="../index.php" class="btn" id="btn-home">Home</a>
+                <a role="button" href="../" class="btn" id="btn-home">Home</a>
             </div>
 
 
