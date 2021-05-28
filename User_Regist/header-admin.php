@@ -1,3 +1,31 @@
+<?php
+
+require_once 'controllers/authController.php'; 
+
+// verify user token
+if (isset($_GET['token'])) {
+    $token = $_GET['token'];
+    verifyUser($token);
+}
+
+// verify user token from forgot password
+if (isset($_GET['password-token'])) {
+    $passwordToken = $_GET['password-token'];
+    resetPassword($passwordToken);
+}
+//user not login
+if (!isset($_SESSION['uid'])) {
+    header('location:signIn');
+    exit();
+}
+
+// agar user tidak bisa akses
+error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
+if($_SESSION['usertype'] == "1"){
+header("location: 404");
+}
+
+?>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- icon -->
@@ -30,7 +58,7 @@
             <h1><a href="index.html" class="logo">Ringkas.Net <span>Dimana Inspirasi Berada</span></a></h1>
 			<hr style="border-top: 1px solid white; margin-bottom: 12px;">
 			<h4 style="color: white;">Selamat Datang!</h4>
-			<p class="sign">#Username</p> <!--add username-->
+			<p class="sign"><?php echo $_SESSION['username']; ?></p> <!--add username-->
 			
 	        <ul class="list-unstyled components mb-5">
 	          <li>
