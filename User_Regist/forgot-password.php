@@ -1,3 +1,4 @@
+<?php require_once 'controllers/authController.php'; ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -5,7 +6,7 @@
         <?php
             include 'header-signin.php';
         ?>
-        <form form class="form" action="login" method="post">
+        <form form class="form" action="forgot-password" method="post">
         <div class="content">
             <div class="container slideBoxAnim" id="box" style="padding: 0; margin-top: 20px;">
                 <div class="row">
@@ -15,6 +16,13 @@
                             <h2 style="font-weight:bold; letter-spacing:1.5px;">Reset Password</h2>
 
                             <p style="font-size: 16px;">Kirimkan permintaan reset password ke Email anda</p>
+                            <?php if (count($errors) > 0): ?>
+                                             <div class="alert alert-danger">
+                                                <?php foreach($errors as $error): ?>
+                                                <li><?php echo $error; ?></li>
+                                                <?php endforeach; ?>
+                                             </div>
+                            <?php endif; ?>
                             <hr style="margin-bottom: 36px;">
                             <div class="w-100"></div>
                             <form>
@@ -25,7 +33,7 @@
                                     <br>
                                     <a href="signUp">saya belum memiliki akun</a>
                                     <div class="w-100"></div>
-                                    <button name="login-btn" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="startbtn" style="margin-top: 10px;">
+                                    <button name="forgot-password" type="submit" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="startbtn" style="margin-top: 10px;">
                                         Kirim
                                     </button>
                                 </div>

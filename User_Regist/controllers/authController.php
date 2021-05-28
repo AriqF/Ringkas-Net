@@ -146,9 +146,6 @@ if (isset($_POST['login-btn'])) {
     $usertype = $_POST['usertype'];
 
     // validation
-    // if (empty($namalengkap)) {
-    // $errors['namalengkap'] = "<font color='red'; > namalengkap Required </font>";
-    // }
     if (empty($username)) {
     $errors['username'] = "<font color='red'; > Username Required </font>";
     }
@@ -157,7 +154,7 @@ if (isset($_POST['login-btn'])) {
     }
 
     if (count($errors) === 0) {
-      $sql = "SELECT * FROM user WHERE email=? OR username=? AND usertype=? LIMIT 1"; //namalengkap=? 
+      $sql = "SELECT * FROM user WHERE email=? OR username=? AND usertype=? LIMIT 1"; 
       $stmt = $conn->prepare($sql);
       $stmt->bind_param('sss', $username, $username, $usertype); //$namalengkap
       $stmt->execute();
@@ -167,10 +164,10 @@ if (isset($_POST['login-btn'])) {
       if (password_verify($password, $user['password'])) {
         if($_SESSION['usertype'] == ""){
 
-            if($user['usertype'] == "admin")
+            if($user['usertype'] == "0")
             {
                 //login sucess
-                $_SESSION['usertype'] = "admin";
+                $_SESSION['usertype'] = "0";
                 $_SESSION['uid'] = $user['uid'];
                 $_SESSION['namalengkap'] = $user['namalengkap'];
                 $_SESSION['username'] = $user['username'];
@@ -184,10 +181,10 @@ if (isset($_POST['login-btn'])) {
                 exit();
             }
 
-            else if($user['usertype'] == "user")
+            else if($user['usertype'] == "1")
             {
                 //login sucess
-                $_SESSION['usertype'] = "user";
+                $_SESSION['usertype'] = "1";
                 $_SESSION['uid'] = $user['uid'];
                 $_SESSION['namalengkap'] = $user['namalengkap'];
                 $_SESSION['username'] = $user['username'];
@@ -273,7 +270,7 @@ if (isset($_POST['forgot-password'])) {
         $user = mysqli_fetch_assoc($result);
         $token = $user['token'];
         SendPasswordResetLink($email, $token);
-        header('location: password_message');
+        header('location: password-message');
         exit(0);
     }
 
@@ -299,7 +296,7 @@ if (isset($_POST['reset-password-btn'])) {
         $sql = "UPDATE user SET password='$password' WHERE email='$email'";
         $result = mysqli_query($conn, $sql);
         if ($result) {
-            header('location: login');
+            header('location: signIn');
             exit(0);
         }
     }
@@ -313,7 +310,7 @@ function resetPassword($token)
     $result = mysqli_query($conn, $sql);
     $user = mysqli_fetch_assoc($result);
     $_SESSION['email'] = $user['email'];
-    header('location: reset_password');
+    header('location: reset-password');
     exit(0);
 }
 

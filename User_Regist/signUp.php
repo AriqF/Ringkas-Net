@@ -23,6 +23,13 @@
                         <div class="container" id="formBox">
                             <h2 style="font-weight:bold; letter-spacing:1.5px;">Sign Up Forms</h2>
                             <p style="font-size: 14px;">Daftar dan mulailah menginspirasi!</p>
+                            <?php if (count($errors) > 0): ?>
+                                             <div class="alert alert-danger">
+                                                <?php foreach($errors as $error): ?>
+                                                <li><?php echo $error; ?></li>
+                                                <?php endforeach; ?>
+                                             </div>
+                            <?php endif; ?>
                             <hr style="margin-bottom: 15px;">
                             <form>
                                 <label class="label control-label">Nama Lengkap</label>
