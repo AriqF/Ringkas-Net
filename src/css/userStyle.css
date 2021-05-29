@@ -1,0 +1,49 @@
+html{
+    scroll-behavior:inherit;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+}
+.pagehead{
+    background-image: url("../img/user-dashboard-img.jpg");
+    padding: 120px;
+    padding-bottom: 80px !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    font-family: 'Benne', serif;
+}
+#trending{
+    min-height: 80vh;
+    padding-top: 120px;
+    background-color: #d2cdc8;
+
+}
+#blog{
+    background-color: #f0e3ca;
+}
+.divider{
+    max-width: 5.25rem;
+    border-width: 0.2rem;
+    border-color: #f4623a;
+}
+.username{
+    margin-bottom: 25px;
+}
+.title{
+    text-decoration: none;
+    color: #161515;
+}
+.title:hover{
+    color: #474242;
+}
+#btn_write{
+    background-color: #f66f65;
+    color: white;
+    padding: 10px 24px;
+    font-family: 'Poppins', sans-serif;
+  }
+  #btn_write:hover{
+    background-color: #F85B4F;
+  }
