@@ -1,3 +1,7 @@
+<?php  
+
+session_start();	
+?>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -30,8 +34,17 @@
                 <div class="error__title">404</div>
                 <div class="error__subtitle">Halaman Tidak Ditemukan!</div>
                 <div class="error__description">Mohon Cek Kembali Penulisan Anda..</div>
-                <a role="button" href="signIn" class="btn" id="btn-login">Login</button>
-                <a role="button" href="../" class="btn" id="btn-home">Home</a>
+                <?php  
+                    $url = "User_Regist/controllers/Logout.php";     
+                ?>
+
+                <?php if ( !isset($_SESSION["uid"])) { ?>
+                    <a role="button" href="signIn" class="btn" id="btn-login">Masuk</button>
+
+                <?php }else{ ?>
+                    <a role="button" href="controllers/Logout.php" class="btn" id="btn-login">Keluar</button>
+                <?php } ?>
+                <a role="button" href="../" class="btn" id="btn-home">Beranda</a>
             </div>
 
 

@@ -59,7 +59,7 @@ header("location: 404");
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link <?php if($currentPage =='user_home'){echo 'active';}?>" href="user-dashboard">Home</a>
+                        <a class="nav-link <?php if($currentPage =='user_home'){echo 'active';}?>" href="user-dashboard">Beranda</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle <?php if($currentPage =='user_write_blog' || $currentPage == 'user_blog'){echo 'active';}?>" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
