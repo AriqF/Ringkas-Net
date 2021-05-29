@@ -9,9 +9,9 @@
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12 text-center">
-                    <h1 class="font-weight-semibold ml3 fadeInUp" style="margin-top: 50px;">Selamat Datang Kembali, </h1>
+                    <h1 class="font-weight-semibold ml3 fadeInUp" style="margin-top: 50px;">Selamat Datang Kembali, <?php echo $_SESSION['username']; ?> </h1>
                     <hr class="divider light my-4" style="margin-bottom: 15px;">
-                    <h4 class="username fadeInDown">#Username</h4>
+                    <h4 class="subtitle fadeInDown"><?php echo date("l") . ", " . date("Y/m/d"); ?></h4>
                     <a href="#" class="btn btn-xl" role="button" id="btn_write">Mulai Menulis</a>
                     <p class="subHeader fadeInDown"></p>
                     
@@ -107,6 +107,9 @@
             </div> <!--px-lg-5 div-->
         </div> <!--container-fluid-->
     </section>
+    <?php
+        include'footer.php';
+    ?>
     <!--anime js-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
