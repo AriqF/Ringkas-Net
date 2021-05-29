@@ -1,3 +1,8 @@
+<?php  
+
+	session_start();	
+?>
+
 <html>
     <head>
         <title>Ringkas.Net - Dimana Inspirasi Ringkas Bisa Didapatkan</title>
@@ -37,7 +42,18 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#trending" onclick="serviceBoxAnim()">Sedang Populer</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#blog" onclick="blogBoxAnim()">Blog</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact" onclick="contactBoxAnim()">Kontak</a></li>
-                        <li class="nav-item"><a class="nav-link" href="User_Regist/signIn">Masuk</a></li>
+                        <li class="nav-item"><?php  
+                            $url = "User_Regist/controllers/logout.php";     
+                            $login = "User_Regist/signIn.php";
+
+                            if ( !isset($_SESSION["uid"])) {
+                                echo "<a href=$login>LOGIN</a>";
+                            }
+                            else{
+                            echo "<a href=$url>LOGOUT</a>";
+                            }
+                        ?>
+                        </li>
                         <li class="nav-item"><a class="nav-link" href="User_Regist/signUp">Daftar</a></li>
                     </ul>
                 </div>
