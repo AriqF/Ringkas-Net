@@ -1,12 +1,3 @@
-<?php
- require_once 'controllers/authController.php';
-
-  if (isset($_SESSION['uid'])) {
-    header('location:history.go(-1)'); 
-    exit();
-  }
-
-  ?>
 <html>
     <head>
         <title>Ringkas.Net - Dimana Inspirasi Ringkas Bisa Didapatkan</title>
