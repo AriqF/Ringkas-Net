@@ -43,20 +43,26 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#blog" onclick="blogBoxAnim()">Blog</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact" onclick="contactBoxAnim()">Kontak</a></li>
                         <?php  
-                            $url = "User_Regist/controllers/logout.php";     
-                            $login = "User_Regist/signIn.php";
+                            $url = "User_Regist/controllers/Logout.php";     
                             ?>
 
                            <?php if ( !isset($_SESSION["uid"])) { ?>
-                                <li class="nav-item"><a class="nav-link" href=$login>Masuk</a></li>
+                                <li class="nav-item"><a class="nav-link" href="User_Regist/SignIn.php">Masuk</a></li>
                             }
 
                             <?php }else{ ?>
-                            echo "<a href=$url>LOGOUT</a>";
+                                <li class="nav-item"><a class="nav-link" href="User_Regist/controllers/Logout.php">Keluar</a></li>
                             <?php } ?>
                         
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="User_Regist/signUp">Daftar</a></li>
+                        <?php if ( !isset($_SESSION["uid"])) { ?>
+                            <li class="nav-item"><a class="nav-link" href="User_Regist/signUp">Daftar</a></li>
+                        }
+
+                        <?php }else{ ?>
+                        <?php } ?>
+                        
+                        </li>
                     </ul>
                 </div>
             </div>
