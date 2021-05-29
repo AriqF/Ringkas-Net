@@ -17,6 +17,7 @@
 
         <!--My css-->
         <link href="src/css/indexStyle.css" type="text/css" rel="stylesheet"> 
+        <link href="src/css/navbarStyle.css" type="text/css" rel="stylesheet"> 
         <link href="src/css/animation.css" type="text/css" rel="stylesheet"> 
         
         <!--Google Fonts-->
@@ -33,7 +34,8 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto my-2 my-lg-0">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about" onclick="aboutBoxAnim()">Tentang Kami</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services" onclick="serviceBoxAnim()">Sedang Populer</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#trending" onclick="serviceBoxAnim()">Sedang Populer</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#blog" onclick="blogBoxAnim()">Blog</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact" onclick="contactBoxAnim()">Kontak</a></li>
                         <li class="nav-item"><a class="nav-link" href="User_Regist/signIn">Masuk</a></li>
                         <li class="nav-item"><a class="nav-link" href="User_Regist/signUp">Daftar</a></li>
@@ -53,6 +55,7 @@
                 </div>
             </div>
         </header>
+        
         <!--about-->
         <section class="about" id="about" style="padding-top: 60px; padding-bottom:80px">
             <div class="container" >
@@ -66,11 +69,12 @@
                 </div>
             </div>
         </section>
+
         <!--Trending-->
-        <section class="page-section" id="services" style="padding-top: 60px; padding-bottom:20px">
-            <div class="container-fluid">
+        <section class="page-section" id="trending" style="padding-top: 60px; border-bottom: 1px solid black">
+            <div class="container-fluid" id="trendingBox">
                 <div class="px-lg-5">
-                    <h2 class="text-center mt-0"><i class="fas fa-chart-line"></i> Sedang Populer</h2>
+                    <h2 class="text-center mt-0"><i class="fas fa-chart-line iheader"></i> Sedang Populer</h2>
                     <hr class="divider my-4" style="margin-bottom: 16px;"/>  
                     <div class="row">
                         <div class="col-xl-3 col-lg-4 col-md-6 mb-4 anim">
@@ -125,6 +129,38 @@
             </div> <!--container-fluid-->
         </section>
 
+        <!--Blog--> 
+        <!--query all blog here-->
+        <section class="page-section" id="blog" style="padding-top: 40px; padding-bottom:20px">
+            <div class="container-fluid">
+                <div class="px-lg-5" id="blogBox">
+                    <h2 class="text-center mt-0"><i class="fas fa-lightbulb iheader"></i> Inspirasi Ringkas</h2>
+                    <hr class="divider my-4" style="margin-bottom: 6px;"/> 
+                    <div class="row justify-content-md-center" style="margin-top:40px; margin-bottom:40px">
+                        <form class="form-inline" method="POST">
+                            <div class="form-group mb-2">
+                            <input name="cari" autocomplete="off" class="form-control mr-sm-2" type="search" placeholder="Cari Blog" aria-label="Search" style="width: 500px;"> 
+                            </div>
+                            <div class="form-group mx-sm-3 mb-2">
+                                <button name="btn-cari"class="btn btn-outline-info my-2 my-sm-0" type="submit" id="search_icon" style="width: fit-content;"><i class="fas fa-search"></i></button>    
+                            </div>
+                        </form>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-4 col-md-6 mb-4 anim">
+                            <div class="p-2 bd-highlight"><i class="fas fa-user-tie"></i> Kang Buncis</div>
+                            <div class="p-2 bd-highlight">
+                                <h5 class="font-weight-bold"><a href="#" class="title">Monitor Terbaik Untuk Coding</a></h5>
+                            </div>
+                            <div class="p-2 bd-highlight">
+                                <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                            </div>
+                        </div>
+                    </div> <!--row div-->
+                </div> <!--px-lg-5 div-->
+            </div> <!--container-fluid-->
+        </section>
+
         <!--Contact-->
         <section class="page-section" id="contact" style="padding-top: 70px; padding-bottom:70px">
         <div class="container">
@@ -147,8 +183,9 @@
                 </div>
             </div>
         </section>
+
         <!-- Footer-->
-        <footer class="bg-light py-5">
+        <footer class="bg-light py-3">
             <div class="container">
                 <div class="small text-center text-muted">
                     Copyright &copy;
@@ -160,72 +197,17 @@
             </div>
         </footer>
 
- 
     <!--anime js-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
     <!--sweet alert-->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!--cdn-->
     <script src="sweetalert2.all.min.js"></script>
     <!-- Optional: include a polyfill for ES6 Promises for IE11 -->
     <script src="//cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+
     <script>
-        (function ($) {
-            "use strict"; // Start of use strict
-
-            // Smooth scrolling using anime.js
-            $('a.js-scroll-trigger[href*="#"]:not([href="#"])').on('click', function () {
-                if (
-                    location.pathname.replace(/^\//, "") ==
-                    this.pathname.replace(/^\//, "") &&
-                    location.hostname == this.hostname
-                ) {
-                    var target = $(this.hash);
-                    target = target.length ?
-                        target :
-                        $("[name=" + this.hash.slice(1) + "]");
-                    if (target.length) {
-                        anime({
-                            targets: 'html, body',
-                            scrollTop: target.offset().top - 72,
-                            duration: 1000,
-                            easing: 'easeInOutExpo'
-                        });
-                        return false;
-                    }
-                }
-            });
-
-            // Closes responsive menu when a scroll trigger link is clicked
-            $('.js-scroll-trigger').click(function () {
-                $('.navbar-collapse').collapse('hide');
-            });
-
-            // Activate scrollspy to add active class to navbar items on scroll
-            $('body').scrollspy({
-                target: '#mainNav',
-                offset: 75
-            });
-
-            // Collapse Navbar
-            var navbarCollapse = function () {
-                if ($("#mainNav").offset().top > 100) {
-                    $("#mainNav").addClass("navbar-scrolled");
-                    
-                } else {
-                    $("#mainNav").removeClass("navbar-scrolled");
-                }
-            };
-            // Collapse now if page is not at top
-            navbarCollapse();
-            // Collapse the navbar when page is scrolled
-            $(window).scroll(navbarCollapse);
-
-
-        })(jQuery); 
-        // function moveWindow(x, y){
-        //     window.scrollTo(x,y);
-        // }
         function showAlert(){
             Swal.fire({
                 icon: 'question',
@@ -253,13 +235,17 @@
         }  
         //function box animation when nav-item clicked
         function serviceBoxAnim(){
-            var element = document.getElementById("services");
+            var element = document.getElementById("trendingBox");
             element.classList.add("fadeInDown");
         }
         function aboutBoxAnim(){
             var element = document.getElementById("about");
             element.classList.add("fadeInUp");
         }
+        function blogBoxAnim(){
+            var elementHead = document.getElementById("blogBox");
+            elementHead.classList.add("fadeInUp");
+        }  
         function contactBoxAnim(){
             var elementHead = document.getElementById("contactHead");
             var elementLead = document.getElementById("contactLead");
@@ -267,6 +253,8 @@
             elementLead.classList.add("fadeInDown");
         }     
     </script>
+    <!--my JS-->
+    <script src="src/js/scroll-trigger.js"></script>
     </body>
 </html>
     
