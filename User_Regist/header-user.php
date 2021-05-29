@@ -61,20 +61,20 @@ header("location: 404");
                     <li class="nav-item">
                         <a class="nav-link <?php if($currentPage =='user_home'){echo 'active';}?>" href="user-dashboard">Home</a>
                     </li>
-                    <li class="nav-item dropdown <?php if($currentPage =='write' || $currentPage == 'myBlog'){echo 'active';}?>">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle <?php if($currentPage =='user_write_blog' || $currentPage == 'user_blog'){echo 'active';}?>" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Blog Saya
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item <?php if($currentPage =='write'){echo 'active';}?>" href="admin-gallery-data">Menulis</a>
-                            <a class="dropdown-item <?php if($currentPage =='myBlog'){echo 'active';}?>" href="admin-unggah">Blog Saya</a>
+                            <a class="dropdown-item <?php if($currentPage =='user_write_blog'){echo 'active';}?>" href="user-write-blog">Menulis</a>
+                            <a class="dropdown-item <?php if($currentPage =='user_blog'){echo 'active';}?>" href="user-blog">Blog Saya</a>
                         </div>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link <?php if($currentPage =='user_profile'){echo 'active';}?>" href="user-profile">Profil</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link <?php if($currentPage =='user_rate'){echo 'active';}?>" href="user-rating">Feedback</a>
+                        <a class="nav-link <?php if($currentPage =='user_rate'){echo 'active';}?>" href="user-feedback">Feedback</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="index1?logout=1">Keluar</a>
