@@ -14,14 +14,17 @@ body{
     color: white;
     font-family: 'Benne', serif;
 }
-#trending{
+#box1{
     min-height: 80vh;
     padding-top: 120px;
     background-color: #d2cdc8;
-
 }
-#blog{
+#box2{
     background-color: #f0e3ca;
+}
+#boxForm{
+    padding: 70px;
+    background-color: #d2cdc8;
 }
 .divider{
     max-width: 5.25rem;
@@ -43,7 +46,22 @@ body{
     color: white;
     padding: 10px 24px;
     font-family: 'Poppins', sans-serif;
-  }
-  #btn_write:hover{
+}
+#btn_write:hover{
     background-color: #F85B4F;
-  }
+}
+.btn-upload{
+    background-color: transparent;
+    border-radius: 18px;
+    border: 1px solid #34a245;
+    padding: 6px 60px;
+    color: #34a245;
+    margin-top: 10px;
+}
+.btn-upload:hover{
+    background-color: #34a245;
+    color: white;
+}
+label{
+    font-size: 18px;
+}

@@ -13,14 +13,13 @@
                     <hr class="divider light my-4" style="margin-bottom: 15px;">
                     <h4 class="subtitle fadeInDown"><?php echo date("l") . ", " . date("Y/m/d"); ?></h4>
                     <a href="#" class="btn btn-xl" role="button" id="btn_write">Mulai Menulis</a>
-                    <p class="subHeader fadeInDown"></p>
-                    
+                    <p class="subHeader fadeInDown"></p>               
                 </div>
             </div>
         </div>
     </header>
     <!--Trending-->
-    <section class="page-section" id="trending" style="padding-top: 60px;">
+    <section class="page-section" id="box1" style="padding-top: 60px;">
         <div class="container-fluid" id="trendingBox">
             <div class="px-lg-5">
                 <h2 class="text-center mt-0"><i class="fas fa-chart-line iheader"></i> Sedang Populer</h2>
@@ -78,7 +77,7 @@
 
     <!--Blog--> 
     <!--query all blog here-->
-    <section class="page-section" id="blog" style="padding-top: 40px; padding-bottom:20px">
+    <section class="page-section" id="box2" style="padding-top: 40px; padding-bottom:20px">
         <div class="container-fluid">
             <div class="px-lg-5" id="blogBox">
                 <h2 class="text-center mt-0"><i class="fas fa-lightbulb iheader"></i> Inspirasi Ringkas</h2>
@@ -110,9 +109,7 @@
     <?php
         include'footer.php';
     ?>
-    <!--anime js-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
-    <script src="../src/js/scroll-trigger.js"></script>
+
+
     </body>
 </html>       
