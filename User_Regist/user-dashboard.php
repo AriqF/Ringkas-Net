@@ -1,6 +1,6 @@
 <!doctype html>
 <head>
-  	<title>User Dashboard</title>
+  	<title>Ringkas.Net - Dashboard</title>
     <?php
         $currentPage = 'user_home';
         include 'header-user.php';
@@ -19,7 +19,7 @@
         </div>
     </header>
     <!--Trending-->
-    <section class="page-section" id="box1" style="padding-top: 60px;">
+    <section class="page-section" id="boxTrending">
         <div class="container-fluid" id="trendingBox">
             <div class="px-lg-5">
                 <h2 class="text-center mt-0"><i class="fas fa-chart-line iheader"></i> Sedang Populer</h2>
@@ -77,7 +77,7 @@
 
     <!--Blog--> 
     <!--query all blog here-->
-    <section class="page-section" id="box2" style="padding-top: 40px; padding-bottom:20px">
+    <section class="page-section" id="boxBlog" style="padding-top: 40px; padding-bottom:20px">
         <div class="container-fluid">
             <div class="px-lg-5" id="blogBox">
                 <h2 class="text-center mt-0"><i class="fas fa-lightbulb iheader"></i> Inspirasi Ringkas</h2>

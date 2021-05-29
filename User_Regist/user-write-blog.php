@@ -1,6 +1,6 @@
 <!doctype html>
 <head>
-  	<title>User Dashboard</title>
+  	<title>Ringkas.Net - Tulis Blog</title>
     <?php
         $currentPage = 'user_write_blog';
         include 'header-user.php';
@@ -23,10 +23,10 @@
             <div class="container">
                 <h2 style="margin-bottom: 12px" class="align-items-center fadeInDown">Inspirasi Apa Yang Ingin Anda Tuangkan Sekarang?</h2>
                 <p style="font-size: 14px;"></p>
-                <hr style="border-top: 1px solid orange">
+                <hr class="divider mx-1" style="border-top: 3px solid orange">
                 <form method="POST" action="admin-unggah-proses" enctype="multipart/form-data">
                     <label class="label control-label">Judul Blog</label>
-                    <input type="text" class="form-control mb-3" name="judul" placeholder="Judul ringkas dari blog anda.." maxlength="19">
+                    <input type="text" class="form-control mb-3" name="judul" placeholder="Judul ringkas dari blog anda.." maxlength="">
                     <label class="label control-label">Isi Blog</label>
                     <textarea rows="5" class="form-control mb-3" name="deskripsi" placeholder="Tuangkan inspirasi ringkas anda disni" style="margin-bottom: 10px;"></textarea>
                     <label for="imageUpload">Unggah Gambar Blog</label>
@@ -39,11 +39,11 @@
         </div>
     </section>
 
-    <?php
-        include'footer.php';
+    <?php 
+        include'function-scroll-trigger.php';
     ?>
     <script>
-        document.getElementById("user_write").style.backgroundImage = "url(../src/img/user-write-img.jpg)";
+        document.getElementById("user_write").style.backgroundImage = "url(../src/img/user-think.jpg)";
     </script>
 </body>
 </html>

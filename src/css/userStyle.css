@@ -4,6 +4,10 @@ html{
 body{
     font-family: 'Poppins', sans-serif;
 }
+html, body{
+    padding: 0;
+    margin: 0;
+}
 .pagehead{
     background-image: url("../img/user-dashboard-img.jpg");
     padding: 120px;
@@ -14,17 +18,23 @@ body{
     color: white;
     font-family: 'Benne', serif;
 }
-#box1{
-    min-height: 80vh;
-    padding-top: 120px;
+#boxTrending{
+    padding-top: 80px;
+    padding-bottom: 60px;
     background-color: #d2cdc8;
 }
-#box2{
+#boxBlog{
     background-color: #f0e3ca;
 }
 #boxForm{
     padding: 70px;
     background-color: #d2cdc8;
+}
+#boxTable{
+    padding-top: 90px;
+    padding-bottom: 60px;
+    background-color: #343a40;
+    color: white;
 }
 .divider{
     max-width: 5.25rem;
@@ -62,6 +72,31 @@ body{
     background-color: #34a245;
     color: white;
 }
+.btn-renew{
+    background-color: transparent;
+    border-radius: 18px;
+    border: 1px solid #7070b8;
+    padding: 6px 40px;
+    color: #7070b8;
+    margin-top: 10px;
+}
+.btn-renew:hover{
+    background-color: #7070b8;
+    color: white;
+}
 label{
     font-size: 18px;
+}
+td, th{
+    vertical-align: middle;
+}
+th, tr, td{
+    color: white;
+    text-align: center;
+}
+tr td{
+    max-width: 50px;
+}
+.td-sm{
+    width: 10%;
 }
