@@ -22,7 +22,6 @@ body{
 }
 .title:hover{
   color: #474242;
-
 }
 .subHeader{
   font-size: 20px;
@@ -36,9 +35,12 @@ body{
 #about{
   background-color: #ef4f4f;
 }
-#services{
+#trending{
   min-height: 80vh;
   padding-top: 120px;
+  background-color: #f0e3ca;
+}
+#blog{
   background-color: #f0e3ca;
 }
 #contact{
@@ -70,75 +72,17 @@ body{
 #btn_getStart:hover{
   background-color: #DED4D4;
 }
-i:hover{
+#search_icon{
+  border-radius: 5px;
+  height: auto;
+}
+.icontact:hover{
   cursor: pointer;
   color: #f66f65;
 }
 .icontact{
   color: #CDC5C5;
 }
-#mainNav {
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-    background-color: #fff;
-    transition: background-color 0.2s ease;
-    font-family: 'Benne', serif;
-  }
-  #mainNav .navbar-brand {
-    font-family: sans-serif;
-    font-weight: 700;
-    color: #212529;
-  }
-  #mainNav .navbar-nav .nav-item .nav-link {
-    color: #6c757d;
-    font-family: sans-serif;
-    font-size: 16px;
-    font-weight:600;
-    padding: 0.75rem 0;
-  }
-  #mainNav .navbar-nav .nav-item .nav-link:hover, #mainNav .navbar-nav .nav-item .nav-link:active {
-    color: #f4623a;
-  }
-  #mainNav .navbar-nav .nav-item .nav-link.active {
-    color: #f4623a !important;
-  }
-  .navbar-brand{
-    cursor: pointer;
-  }
-  @media (min-width: 992px) {
-    #mainNav {
-      box-shadow: none;
-      background-color: transparent;
-    }
-    #mainNav .navbar-brand {
-      color: rgba(255, 255, 255, 0.7);
-    }
-    #mainNav .navbar-brand:hover {
-      color: #fff;
-    }
-    #mainNav .navbar-nav .nav-item .nav-link {
-      color: rgba(255, 255, 255, 0.7);
-      padding: 0 1rem;
-    }
-    #mainNav .navbar-nav .nav-item .nav-link:hover {
-      color: #F96A43;
-    }
-    #mainNav .navbar-nav .nav-item:last-child .nav-link {
-      padding-right: 0;
-    }
-    #mainNav.navbar-scrolled {
-      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-      background-color: #fff;
-    }
-    #mainNav.navbar-scrolled .navbar-brand {
-      color: #212529;
-    }
-    #mainNav.navbar-scrolled .navbar-brand:hover {
-      color: #f4623a;
-    }
-    #mainNav.navbar-scrolled .navbar-nav .nav-item .nav-link {
-      color: #212529;
-    }
-    #mainNav.navbar-scrolled .navbar-nav .nav-item .nav-link:hover {
-      color: #f4623a;
-    }
-  }
+.iheader:hover{
+  color: #f66f65;
+}
