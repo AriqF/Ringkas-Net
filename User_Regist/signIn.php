@@ -1,11 +1,6 @@
 <?php
  require_once 'controllers/authController.php';
 
-  if (isset($_SESSION['uid'])) {
-    header('location:history.go(-1)'); 
-    exit();
-  }
-
   ?>
 <!DOCTYPE html>
 <html>
