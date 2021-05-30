@@ -35,16 +35,17 @@ session_start();
                 <div class="error__subtitle">Halaman Tidak Ditemukan!</div>
                 <div class="error__description">Mohon Cek Kembali Penulisan Anda..</div>
                 <?php  
-                    $url = "User_Regist/controllers/Logout.php";     
+                    $url = "User_Regist/controllers/Logout";     
                 ?>
 
                 <?php if ( !isset($_SESSION["uid"])) { ?>
                     <a role="button" href="signIn" class="btn" id="btn-login">Masuk</button>
 
                 <?php }else{ ?>
-                    <a role="button" href="controllers/Logout.php" class="btn" id="btn-login">Keluar</button>
+                    <a role="button" href="controllers/Logout" class="btn" id="btn-login">Keluar</button>
                 <?php } ?>
                 <a role="button" href="../" class="btn" id="btn-home">Beranda</a>
+                <a role="button" href="javascript:window.history.go(-1);" class="btn" id="btn-home">Kembali ke halaman sebelumnya</a>
             </div>
 
 

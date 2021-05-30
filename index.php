@@ -61,6 +61,36 @@
 
                         <?php }else{ ?>
                         <?php } ?>
+
+
+
+
+
+<!--                        STYLING FONT
+
+                         <li class="nav-item"><a  style="font-family: 'Benne', serif; font-size:22px; letter-spacing:1px" class="nav-link js-scroll-trigger" href="#about" onclick="aboutBoxAnim()">Tentang Kami</a></li>
+                        <li class="nav-item"><a  style="font-family: 'Benne', serif; font-size:22px; letter-spacing:1px" class="nav-link js-scroll-trigger" href="#trending" onclick="serviceBoxAnim()">Sedang Populer</a></li>
+                        <li class="nav-item"><a  style="font-family: 'Benne', serif; font-size:22px; letter-spacing:1px" class="nav-link js-scroll-trigger" href="#blog" onclick="blogBoxAnim()">Blog</a></li>
+                        <li class="nav-item"><a  style="font-family: 'Benne', serif; font-size:22px; letter-spacing:1px" class="nav-link js-scroll-trigger" href="#contact" onclick="contactBoxAnim()">Kontak</a></li>
+                        <?php  
+                            $url = "User_Regist/controllers/Logout.php";     
+                            ?>
+
+                           <?php if ( !isset($_SESSION["uid"])) { ?>
+                                <li class="nav-item"><a  style="font-family: 'Benne', serif; font-size:22px; letter-spacing:1px" class="nav-link" href="User_Regist/signIn">Masuk</a></li>
+                            
+
+                            <?php }else{ ?>
+                                <li class="nav-item"><a  style="font-family: 'Benne', serif; font-size:22px; letter-spacing:1px" class="nav-link" href="User_Regist/controllers/Logout">Keluar</a></li>
+                            <?php } ?>
+                        
+                        </li>
+                        <?php if ( !isset($_SESSION["uid"])) { ?>
+                            <li class="nav-item"><a  style="font-family: 'Benne', serif; font-size:22px; letter-spacing:1px" class="nav-link" href="User_Regist/signUp">Daftar</a></li>
+                        
+
+                        <?php }else{ ?>
+                        <?php } ?> -->
                         
                         </li>
                     </ul>
