@@ -1,6 +1,6 @@
 <!doctype html>
 <head>
-  	<title>User Dashboard</title>
+  	<title>Ringkas.Net - Profil</title>
     <?php
         $currentPage = 'user_profile';
         include 'header-user.php';
@@ -13,7 +13,7 @@
             <div class="row h-100 align-items-center">
                 <div class="col-12 text-center">
                     <h1 class="font-weight-semibold ml3 fadeInUp" style="margin-top: 50px;">Ada Inspirasi Apa Hari ini?, <?php echo $_SESSION['username']; ?> </h1>
-                    <hr class="divider light my-4" style="margin-bottom: 15px;">
+                    <hr class="text-divider mx-auto" style="margin-bottom: 15px;">
                     <h4 class="subtitle fadeInDown">"Inspirasi Tidak Akan Menjadi Inspirasi Jika Tidak Ditulis"</h4>
                     <p class="subHeader fadeInDown"></p> 
                 </div>
@@ -25,7 +25,7 @@
             <div class="container">
                 <h3 style="margin-bottom: 12px" class="align-items-center fadeInUp">Data Profil</h3>
                 <p style="font-size: 14px;"></p>
-                <hr class="divider mx-1 light">
+                <hr class="text-divider mx-1">
                 <form method="POST" action="admin-unggah-proses" enctype="multipart/form-data">
                     <label class="label control-label">Nama Lengkap</label>
                     <input type="text" class="form-control mb-3" name="namalengkap" value="<?php echo $_SESSION['namalengkap']; ?>" readonly>
@@ -53,9 +53,9 @@
                         Perbarui
                     </button>
                 </form>
-                <hr style="border-top: 1px solid black; margin-bottom:20px; margin-top:30px">
-                <h3 class="fadeInDown">Perbarui Password</h3>
-                <hr class="divider light mx-1">
+
+                <h3 class="fadeInDown" style="margin-bottom:20px; margin-top:30px;">Perbarui Password</h3>
+                <hr class="text-divider mx-1">
                 <p>Untuk memberbarui password anda dan memastikan bahwa itu anda, <br>silahkan klik tombol dan menuju ke halaman penggantian password </p>
                 <button name="submit-btn" type="submit" class="btn btn-renew" data-toggle="modal" data-target="#exampleModal">
                     Kirim

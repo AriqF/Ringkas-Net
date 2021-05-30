@@ -36,7 +36,12 @@ html, body{
     background-color: #343a40;
     color: white;
 }
-.divider{
+.text-divider{
+    max-width: 5.25rem;
+    border-width: 0.2rem;
+    border-color: #f4623a;
+}
+hr{
     max-width: 5.25rem;
     border-width: 0.2rem;
     border-color: #f4623a;
@@ -99,4 +104,14 @@ tr td{
 }
 .td-sm{
     width: 10%;
+}
+#customRadio1, #customRadio2, #customRadio3,
+#customRadio4, #customRadio5{
+    cursor: pointer;  
+}
+.custom-control-input{
+    cursor: pointer;
+}
+#keeptxt{
+    cursor: pointer;
 }
