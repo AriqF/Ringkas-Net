@@ -47,11 +47,11 @@
                             ?>
 
                            <?php if ( !isset($_SESSION["uid"])) { ?>
-                                <li class="nav-item"><a class="nav-link" href="User_Regist/SignIn.php">Masuk</a></li>
+                                <li class="nav-item"><a class="nav-link" href="User_Regist/signIn">Masuk</a></li>
                             
 
                             <?php }else{ ?>
-                                <li class="nav-item"><a class="nav-link" href="User_Regist/controllers/Logout.php">Keluar</a></li>
+                                <li class="nav-item"><a class="nav-link" href="User_Regist/controllers/Logout">Keluar</a></li>
                             <?php } ?>
                         
                         </li>
