@@ -24,13 +24,16 @@
                 <h2 style="margin-bottom: 12px" class="align-items-center fadeInDown">Inspirasi Apa Yang Ingin Anda Tuangkan Sekarang?</h2>
                 <p style="font-size: 14px;"></p>
                 <hr class="divider mx-1" style="border-top: 3px solid orange">
-                <form method="POST" action="admin-unggah-proses" enctype="multipart/form-data">
+                <form method="POST" action="function-user-write-blog" enctype="multipart/form-data">
+                    <input name="uid" type="text" class="form-control mb-3" value="<?php echo $_SESSION['uid']; ?>" hidden>  
                     <label class="label control-label">Judul Blog</label>
                     <input required type="text" class="form-control mb-3" name="judul" placeholder="Judul ringkas dari blog anda.." maxlength="">
+                    <label class="label control-label">Penulis</label>
+                    <input readonly type="text" class="form-control mb-3" name="penulis" value="<?php echo $_SESSION['username']; ?>" maxlength="">
                     <label class="label control-label">Isi Blog</label>
-                    <textarea required id="description" rows="5" class="form-control mb-3" name="deskripsi" placeholder="Tuangkan inspirasi ringkas anda disni" style="margin-bottom: 10px;"></textarea>
+                    <textarea required id="description" rows="5" class="form-control mb-3" name="isi_blog" placeholder="Tuangkan inspirasi ringkas anda disni" style="margin-bottom: 10px;"></textarea> <br>
                     <label for="imageUpload">Unggah Gambar Blog</label>
-                    <input required name="foto_karya" type="file"  class="form-control-file mb-2" id="exampleFormControlFile1" style="cursor: pointer;">                      
+                    <input required name="gambar" type="file"  class="form-control-file mb-2" id="exampleFormControlFile1" style="cursor: pointer;">                      
                     <button name="submit-btn" type="submit" class="btn btn-upload" data-toggle="modal" data-target="#exampleModal">
                         Unggah
                     </button>

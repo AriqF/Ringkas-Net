@@ -4,6 +4,7 @@
     <?php
         $currentPage = 'user_blog';
         include 'header-user.php';
+        $uid = $_SESSION['uid'];
     ?>
     <header class="pagehead" id="user_write">
         <div class="container h-100">
@@ -33,29 +34,54 @@
                 <table class="table table-striped table-image">
                     <thead >
                         <tr>
+                            <th scope="col">Nomor</th>
                             <th scope="col">Judul</th>
+                            <!-- <th scope="col">Penulis</th> -->
                             <th scope="col">Isi Blog</th>
-                            <th scope="col">Gambar</th>                                
+                            <th scope="col">Gambar</th>        
                             <th scope="col">Aksi</th>                    
                         </tr>
                     </thead>
                     <tbody>
+                        <?php
+
+                            // jalankan query untuk menampilkan semua data diurutkan berdasarkan nim
+                           $query = "SELECT d.id_blog, d.uid, d.judul, d.penulis, d.isi_blog, d.gambar FROM blog AS d JOIN user AS u ON d.uid = $uid GROUP BY d.judul ORDER BY id_blog ASC;";
+                            $result = mysqli_query($conn, $query);
+                            if (isset($_POST['cari'])) {
+                                $result = mysqli_query($conn,"SELECT * FROM blog WHERE judul LIKE '%".$_POST['cari']."%' OR penulis LIKE '%".$_POST['cari']."%'"  );
+                            }
+                            //mengecek apakah ada error ketika menjalankan query
+                            if(!$result){
+                                die ("Query Error: ".mysqli_errno($conn).
+                                " - ".mysqli_error($conn));
+                            }
+                            //perulangan untuk element tabel dari data mahasiswa
+                            $ID = 1; //variabel untuk membuat nomor urut
+                            // hasil query akan disimpan dalam variabel $data dalam bentuk array kemudian dicetak dengan perulangan while
+                          
+                            while($row = mysqli_fetch_assoc($result))
+                            {
+                            ?>
                         <tr>
-                            <td class="align-middle text-center">Menulislah!</td>
-                            <td class="align-middle text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</td> <!--<td><.? php echo substr($row['deskripsi'], 0, 20); ?.>...</td> -->
-                            <td style="text-align: center;"><img src="../src/img/signin-img.jpg" class="img-fluid img-thumbnail w-50"></td>
-                            <td class="align-middle text-center">
-                                <a href="#" style="text-decoration:none"><button name="edit-pass-btn" type="submit" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" style="margin-top: 10px; border-radius: 5px; width:fit-content">Hapus</button></a>
-                            </td>
+                            <td class="align-middle text-center"><?php echo $ID; ?></td>
+                                <td class="align-middle text-center"><?php echo $row['judul']; ?></td>
+                            <td hidden class="align-middle text-center"><?php echo $row['penulis']; ?></td>
+                            <td class="align-middle text-center"><?php echo substr($row['isi_blog'], 0, 50);?></td>
+                            <td style="text-align: center;"><img src="image/<?php echo $row['gambar']; ?>" class="img-fluid img-thumbnail"></td>
+                            
+                            <td>
+                                    <a href="unggah-karya-edit?id=<?php echo $row['id']; ?>" style="text-decoration:none"> <button name="edit-pass-btn" type="submit" class="btn btn-success btnGal" data-toggle="modal" data-target="#exampleModal" style="margin-top: 10px; border-radius: 5px; width:fit-content" >Edit</button></a>
+                                    <a href="unggah-karya-hapus-proses?id=<?php echo $row['id']; ?>" style="text-decoration:none" onclick="return confirm('Anda yakin akan menghapus data ini?')" ><button name="edit-pass-btn" type="submit" class="btn btn-danger btnGal" data-toggle="modal" data-target="#exampleModal" style="margin-top: 10px; border-radius: 5px; width:fit-content">Hapus</button></a>
+                                    
+                                </td>
+                           
                         </tr>
-                        <tr>
-                            <td class="align-middle text-center">Membacalah!</td>
-                            <td class="align-middle text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</td> <!--<td><.? php echo substr($row['deskripsi'], 0, 20); ?.>...</td> -->
-                            <td style="text-align: center;"><img src="../src/img/signup-img.jpg" class="img-fluid img-thumbnail w-50"></td>
-                            <td class="align-middle text-center">
-                                <a href="#" style="text-decoration:none"><button name="edit-pass-btn" type="submit" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" style="margin-top: 10px; border-radius: 5px; width:fit-content">Hapus</button></a>
-                            </td>
-                        </tr>
+                        <?php
+                                $ID++; //untuk nomor urut terus bertambah 1
+                            }
+
+                        ?>
                     </tbody>
                 </table>
             </div>
