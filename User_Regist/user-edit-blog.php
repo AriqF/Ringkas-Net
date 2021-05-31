@@ -11,7 +11,7 @@
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12 text-center">
-                    <h1 class="font-weight-semibold ml3 fadeInUp" style="margin-top: 50px;">Ada Inspirasi Apa Hari ini?, <?php echo $_SESSION['username']; ?> </h1>
+                    <h1 class="font-weight-semibold ml3 fadeInUp" style="margin-top: 50px;">Perubahan Inspirasi? <?php echo $_SESSION['username']; ?> </h1>
                     <hr class="divider light my-4" style="margin-bottom: 15px;">
                     <h4 class="subtitle fadeInDown">"Inspirasi Tidak Akan Menjadi Inspirasi Jika Tidak Ditulis"</h4>
                     <p class="subHeader fadeInDown"></p> 
@@ -22,7 +22,7 @@
     <section class="page-section" id="boxForm">
         <div class="container-fluid">
             <div class="container">
-                <h2 style="margin-bottom: 12px" class="align-items-center fadeInDown">Perubahan Inspirasi?</h2>
+                <h2 style="margin-bottom: 12px" class="align-items-center fadeInDown">Inspirasi Apa Yang Ingin Anda Ubah?</h2>
                 <p style="font-size: 14px;"></p>
                 <hr class="divider mx-1" style="border-top: 3px solid orange">
                 <form method="POST" action="function-user-write-blog" enctype="multipart/form-data">
