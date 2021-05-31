@@ -71,10 +71,9 @@
                             <td style="text-align: center;"><img src="image/<?php echo $row['gambar']; ?>" class="img-fluid img-thumbnail"></td>
                             
                             <td>
-                                    <a href="unggah-karya-edit?id=<?php echo $row['id']; ?>" style="text-decoration:none"> <button name="edit-pass-btn" type="submit" class="btn btn-success btnGal" data-toggle="modal" data-target="#exampleModal" style="margin-top: 10px; border-radius: 5px; width:fit-content" >Edit</button></a>
-                                    <a href="unggah-karya-hapus-proses?id=<?php echo $row['id']; ?>" style="text-decoration:none" onclick="return confirm('Anda yakin akan menghapus data ini?')" ><button name="edit-pass-btn" type="submit" class="btn btn-danger btnGal" data-toggle="modal" data-target="#exampleModal" style="margin-top: 10px; border-radius: 5px; width:fit-content">Hapus</button></a>
-                                    
-                                </td>
+                                <a href="user-edit-blog?id=<?php echo $row['id_blog']; ?>" style="text-decoration:none"> <button name="edit-pass-btn" type="submit" class="btn btn-success btnGal" data-toggle="modal" data-target="#exampleModal" style="margin-top: 10px; border-radius: 5px; width:fit-content" >Edit</button></a>
+                                <a href="function-user-delete-blog?id=<?php echo $row['id_blog']; ?>" style="text-decoration:none" onclick="return confirm('Anda yakin akan menghapus data ini?')" ><button name="edit-pass-btn" type="submit" class="btn btn-danger btnGal" data-toggle="modal" data-target="#exampleModal" style="margin-top: 10px; border-radius: 5px; width:fit-content">Hapus</button></a> 
+                            </td>
                            
                         </tr>
                         <?php
