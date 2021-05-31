@@ -37,15 +37,14 @@ session_start();
                 <?php  
                     $url = "User_Regist/controllers/Logout";     
                 ?>
-
+                
                 <?php if ( !isset($_SESSION["uid"])) { ?>
                     <a role="button" href="signIn" class="btn" id="btn-login">Masuk</button>
 
                 <?php }else{ ?>
                     <a role="button" href="controllers/Logout" class="btn" id="btn-login">Keluar</button>
                 <?php } ?>
-                <a role="button" href="../" class="btn" id="btn-home">Beranda</a>
-                <a role="button" href="javascript:window.history.go(-1);" class="btn" id="btn-home">Kembali ke halaman sebelumnya</a>
+                <a role="button" href="javascript:window.history.go(-1);" class="btn" id="btn-home"><abbr title="Kembali Ke Halaman Sebelumnya" style="text-decoration: none;">Kembali</abbr></a>
             </div>
 
 
