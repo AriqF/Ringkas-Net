@@ -11,6 +11,8 @@ body{
     margin-top: 60px;
     padding: 50px;
     padding-bottom: 10px;
+    background-color: #d2cdc8;
+    color: #595754;
 }
 .blog-title{
     font-family: 'DM Serif Display', serif;
@@ -25,15 +27,17 @@ img{
     height: 75%;
     margin-bottom: 20px;
     transform: scale(0.9);
+    border: 2px solid #53535D;
+
 }
-#img-block{
+/* #img-block{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     padding: 120px;
     padding-bottom: 80px !important;
     height: 60vh;
-}
+} */
 .blog-content{
     line-height: 1.7;
     font-size: 18px;

@@ -41,7 +41,7 @@ html, body{
     border-width: 0.2rem;
     border-color: #f4623a;
 }
-hr{
+.divider{
     max-width: 5.25rem;
     border-width: 0.2rem;
     border-color: #f4623a;
