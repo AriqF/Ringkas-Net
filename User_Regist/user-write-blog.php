@@ -26,11 +26,11 @@
                 <hr class="divider mx-1" style="border-top: 3px solid orange">
                 <form method="POST" action="admin-unggah-proses" enctype="multipart/form-data">
                     <label class="label control-label">Judul Blog</label>
-                    <input type="text" class="form-control mb-3" name="judul" placeholder="Judul ringkas dari blog anda.." maxlength="">
+                    <input required type="text" class="form-control mb-3" name="judul" placeholder="Judul ringkas dari blog anda.." maxlength="">
                     <label class="label control-label">Isi Blog</label>
-                    <textarea rows="5" class="form-control mb-3" name="deskripsi" placeholder="Tuangkan inspirasi ringkas anda disni" style="margin-bottom: 10px;"></textarea>
+                    <textarea required id="description" rows="5" class="form-control mb-3" name="deskripsi" placeholder="Tuangkan inspirasi ringkas anda disni" style="margin-bottom: 10px;"></textarea>
                     <label for="imageUpload">Unggah Gambar Blog</label>
-                    <input name="foto_karya" type="file"  class="form-control-file mb-2" id="exampleFormControlFile1" style="cursor: pointer;">                      
+                    <input required name="foto_karya" type="file"  class="form-control-file mb-2" id="exampleFormControlFile1" style="cursor: pointer;">                      
                     <button name="submit-btn" type="submit" class="btn btn-upload" data-toggle="modal" data-target="#exampleModal">
                         Unggah
                     </button>
@@ -44,6 +44,11 @@
     ?>
     <script>
         document.getElementById("user_write").style.backgroundImage = "url(../src/img/user-think.jpg)";
+    </script>
+    <script>
+        // replace <textarea id="editor1"> with a ckeditor
+        // instance ,using default config
+        CKEDITOR.replace('description');
     </script>
 </body>
 </html>

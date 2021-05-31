@@ -51,6 +51,10 @@ header("location: 404");
     <link href="https://fonts.googleapis.com/css2?family=Benne&family=Overpass&family=Poppins&display=swap" rel="stylesheet">
 
     <script src="https://kit.fontawesome.com/babb4f3fd7.js" crossorigin="anonymous"></script>
+
+    <!-- Add Ckeditor -->
+    <script src="../src/ckeditor/ckeditor.js" ></script>
+    
     </head>
     <body id="page-top">
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
