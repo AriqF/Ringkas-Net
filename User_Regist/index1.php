@@ -57,7 +57,7 @@ if (!isset($_SESSION['uid'])) {
                     
                             <?php elseif($_SESSION['verified']): ?>
 
-                                <a href="dashboard_user" style="text-decoration: none;"><button class="btn btn-block btn-lg btn-primary">Masuk &#187</button></a>
+                                <a href="user-dashboard" style="text-decoration: none;"><button class="btn btn-block btn-lg btn-primary">Masuk &#187</button></a>
                             <?php endif; ?>
                             
                         </div>
