@@ -4,6 +4,34 @@
     <?php
         $currentPage = 'user_home';
         include 'header-user.php';
+        $day = strval(date("l"));  
+        switch($day){
+            case 'Monday':
+                $day = 'Senin';
+                break;
+            case 'Tuesday':
+                $day = 'Selasa';
+                break;
+            case 'Wednesday':
+                $day = 'Rabu';
+                break;
+            case 'Thursday':
+                $day = 'Kamis';
+                break;
+            case 'Friday':
+                $day = 'Jumat';
+                break;
+            case 'Saturday':
+                $day = 'Sabtu';
+                break;
+            case 'Sunday':
+                $day = 'Minggu';
+                break;
+            default:
+                $day = 'End Of The Day';
+        }
+        $date = date("d/m/Y");
+        
     ?>
     <header class="pagehead">
         <div class="container h-100">
@@ -11,7 +39,7 @@
                 <div class="col-12 text-center">
                     <h1 class="font-weight-semibold ml3 fadeInUp" style="margin-top: 50px;">Selamat Datang Kembali, <?php echo $_SESSION['username']; ?> </h1>
                     <hr class="divider light my-4" style="margin-bottom: 15px;">
-                    <h4 class="subtitle fadeInDown"><?php echo date("l") . ", " . date("Y/m/d"); ?></h4>
+                    <h4 class="subtitle fadeInDown"><?php echo $day . ", " . $date ?></h4>
                     <a href="#" class="btn btn-xl" role="button" id="btn_write">Mulai Menulis</a>
                     <p class="subHeader fadeInDown"></p>               
                 </div>
