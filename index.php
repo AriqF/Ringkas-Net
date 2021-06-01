@@ -1,6 +1,7 @@
 <?php  
 
 	session_start();	
+    require 'User_Regist/config/db.php';
 ?>
 
 <html>
@@ -125,7 +126,7 @@
         </section>
 
         <!--Trending-->
-        <section class="page-section" id="trending" style="padding-top: 60px; border-bottom: 1px solid black">
+        <section class="page-section" id="trending" style="padding-top: 60px;">
             <div class="container-fluid" id="trendingBox">
                 <div class="px-lg-5">
                     <h2 class="text-center mt-0"><i class="fas fa-chart-line iheader"></i> Sedang Populer</h2>
@@ -183,37 +184,76 @@
             </div> <!--container-fluid-->
         </section>
 
-        <!--Blog--> 
-        <!--query all blog here-->
-        <section class="page-section" id="blog" style="padding-top: 40px; padding-bottom:20px">
-            <div class="container-fluid">
-                <div class="px-lg-5" id="blogBox">
-                    <h2 class="text-center mt-0"><i class="fas fa-lightbulb iheader"></i> Inspirasi Ringkas</h2>
-                    <hr class="divider my-4" style="margin-bottom: 6px;"/> 
-                    <div class="row justify-content-md-center" style="margin-top:40px; margin-bottom:40px">
-                        <form class="form-inline" method="POST">
-                            <div class="form-group mb-2">
-                            <input name="cari" autocomplete="off" class="form-control mr-sm-2" type="search" placeholder="Cari Blog" aria-label="Search" style="width: 500px;"> 
-                            </div>
-                            <div class="form-group mx-sm-3 mb-2">
-                                <button name="btn-cari"class="btn btn-outline-info my-2 my-sm-0" type="submit" id="search_icon" style="width: fit-content;"><i class="fas fa-search"></i></button>    
-                            </div>
-                        </form>
+        <section class="foryou" id="foryou" style="padding-top: 60px; padding-bottom:30px">
+            <div class="container" >
+                <div class="row align-items-center">
+                    <div class="col-12 align-middle text-center">
+                        <h2 class="text-white mt-0">Perlu Lebih Banyak Lagi?</h2>
+                        <hr class="divider light my-4" style="border-color:white">
+                        <p class="mb-4" style="color: #EEEAEA;">Jangan Khawatir! Kami Akan Selalu Menghadirkan Beragam <br> Informasi Ringkas Untuk Anda..</p>
+                    
                     </div>
-                    <div class="row">
+                </div>
+            </div>
+        </section>
+
+    <!--Blog--> 
+    <!--query all blog here-->
+    <section class="page-section" id="blog" style="padding-top: 40px; padding-bottom:20px">
+        <div class="container-fluid">
+            <div class="px-lg-5" id="blogBox">
+                <h2 class="text-center mt-0"><i class="fas fa-lightbulb iheader"></i> Inspirasi Ringkas</h2>
+                <hr class="divider my-4" style="margin-bottom: 6px;"/> 
+                <div class="row justify-content-md-center" style="margin-top:40px; margin-bottom:40px">
+                    <form class="form-inline" action="" method="POST">
+                        <div class="form-group mb-2">
+                        <input name="cari" autocomplete="off" class="form-control mr-sm-2" type="search" placeholder="Cari Blog" aria-label="Search"> 
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2">
+                            <button name="btn-cari"class="btn btn-outline-info my-2 my-sm-0" type="submit" id="search_icon" style="width: fit-content;"><i class="fas fa-search"></i></button>    
+                        </div>
+                    </form>
+                </div>
+                <div class="row">
+                <?php
+                    // jalankan query untuk menampilkan semua data diurutkan berdasarkan nim
+                    $query = "SELECT * FROM blog ORDER BY id_blog ASC;";
+                    $result = mysqli_query($conn, $query);
+                    if (isset($_POST['cari'])) {
+                        $result = mysqli_query($conn,"SELECT * FROM blog WHERE judul LIKE '%".$_POST['cari']."%' OR penulis LIKE '%".$_POST['cari']."%'"  );
+                    }
+                    //mengecek apakah ada error ketika menjalankan query
+                    if(!$result){
+                        die ("Query Error: ".mysqli_errno($conn).
+                        " - ".mysqli_error($conn));
+                    }
+                    //perulangan untuk element tabel dari data mahasiswa
+                    $ID = 1; //variabel untuk membuat nomor urut
+                    // hasil query akan disimpan dalam variabel $data dalam bentuk array kemudian dicetak dengan perulangan while
+
+                    while($row = mysqli_fetch_assoc($result))
+                    {
+                    ?>
                         <div class="col-xl-3 col-lg-4 col-md-6 mb-4 anim">
-                            <div class="p-2 bd-highlight"><i class="fas fa-user-tie"></i> Kang Buncis</div>
+                            <div class="p-2 bd-highlight"><i class="fas fa-user-tie"></i> <?php echo $row['penulis']; ?></div>
                             <div class="p-2 bd-highlight">
-                                <h5 class="font-weight-bold"><a href="#" class="title">Monitor Terbaik Untuk Coding</a></h5>
+                                <h5 class="font-weight-bold"><a href="user-read-blog?id=<?php echo $row['id_blog']; ?>" class="title"><?php echo $row['judul']; ?></a></h5>
                             </div>
                             <div class="p-2 bd-highlight">
-                                <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                                <p class="desc"><?php echo substr($row['isi_blog'], 0, 50);?></p>
                             </div>
                         </div>
-                    </div> <!--row div-->
-                </div> <!--px-lg-5 div-->
-            </div> <!--container-fluid-->
-        </section>
+                    <?php
+                        $ID++; //untuk nomor urut terus bertambah 1
+                    }
+
+                    ?>
+
+
+                </div> <!--row div-->
+            </div> <!--px-lg-5 div-->
+        </div> <!--container-fluid-->
+    </section>
 
         <!--Contact-->
         <section class="page-section" id="contact" style="padding-top: 70px; padding-bottom:70px">

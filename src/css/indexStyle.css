@@ -35,10 +35,13 @@ body{
 #about{
   background-color: #ef4f4f;
 }
+#foryou{
+  background-color: #ef4f4f;
+}
 #trending{
   min-height: 80vh;
   padding-top: 120px;
-  background-color: #f0e3ca;
+  background-color: #FAE1B0;
 }
 #blog{
   background-color: #f0e3ca;
