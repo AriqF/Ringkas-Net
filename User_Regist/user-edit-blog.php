@@ -47,8 +47,8 @@
                 <h2 style="margin-bottom: 12px" class="align-items-center fadeInDown">Inspirasi Apa Yang Ingin Anda Ubah?</h2>
                 <p style="font-size: 14px;"></p>
                 <hr class="divider mx-1" style="border-top: 3px solid orange">
-                <form method="POST" action="function-user-write-blog" enctype="multipart/form-data">
-                    <input name="uid" type="text" class="form-control mb-3" value="<?php echo $_SESSION['uid']; ?>" hidden>  
+                <form method="POST" action="function-user-edit-blog" enctype="multipart/form-data">
+                    <input name="id" type="text" class="form-control mb-3" value="<?php echo $data['id_blog']; ?>" hidden>  
                     <label class="label control-label">Judul Blog</label>
                     <input type="text" class="form-control mb-3" name="judul" placeholder="Judul ringkas dari blog anda.." value="<?php echo $data['judul']; ?>" maxlength="">
                     <label class="label control-label">Penulis</label>
@@ -83,6 +83,11 @@
             )
         });
 
+    </script>
+    <script>
+        // replace <textarea id="editor1"> with a ckeditor
+        // instance ,using default config
+        CKEDITOR.replace('description');
     </script>
 </body>
 </html>
