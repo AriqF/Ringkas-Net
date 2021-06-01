@@ -50,15 +50,15 @@
                 <form method="POST" action="function-user-write-blog" enctype="multipart/form-data">
                     <input name="uid" type="text" class="form-control mb-3" value="<?php echo $_SESSION['uid']; ?>" hidden>  
                     <label class="label control-label">Judul Blog</label>
-                    <input required type="text" class="form-control mb-3" name="judul" placeholder="Judul ringkas dari blog anda.." value="<?php echo $data['judul']; ?>" maxlength="">
+                    <input type="text" class="form-control mb-3" name="judul" placeholder="Judul ringkas dari blog anda.." value="<?php echo $data['judul']; ?>" maxlength="">
                     <label class="label control-label">Penulis</label>
                     <input readonly type="text" class="form-control mb-3" name="penulis" value="<?php echo $data['penulis']; ?>" maxlength="">
                     <label class="label control-label">Isi Blog</label>
-                    <textarea required id="description" rows="5" class="form-control mb-3" name="isi_blog" placeholder="Tuangkan inspirasi ringkas anda disni" style="margin-bottom: 10px;"><?php echo $data['isi_blog']; ?></textarea> <br>
+                    <textarea id="description" rows="5" class="form-control mb-3" name="isi_blog" placeholder="Tuangkan inspirasi ringkas anda disni" style="margin-bottom: 10px;"><?php echo $data['isi_blog']; ?></textarea> <br>
                     <label for="imageUpload">Unggah Gambar Blog</label>
                     <div class="w-100"></div>
                     <img src="image/<?php echo $data['gambar']; ?>" class="rounded float-start" style="width: 120px;margin-bottom: 15px;">
-                    <input required name="gambar" type="file"  class="form-control-file mb-2" id="exampleFormControlFile1" style="cursor: pointer;">                      
+                    <input name="gambar" type="file"  class="form-control-file mb-2" id="exampleFormControlFile1" style="cursor: pointer;">                      
                     <button name="submit-btn" type="submit" class="btn btn-upload" data-toggle="modal" data-target="#exampleModal">
                         Ubah
                     </button>
