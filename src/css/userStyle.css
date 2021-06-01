@@ -60,6 +60,7 @@ html, body{
     background-color: #f66f65;
     color: white;
     padding: 10px 24px;
+    border-radius: 18px;
     font-family: 'Poppins', sans-serif;
 }
 #btn_write:hover{
