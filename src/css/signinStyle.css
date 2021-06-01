@@ -50,18 +50,19 @@ input{
     }
 }
 #startbtn{
-    background-color: #c76e52;
-    border-color: #B9664C;   
-    font-size: 16px;
+    background-color: transparent;
+    border-color: #f54748;   
+    font-size: 18px;
     min-height: auto;
-    width: 30%;
+    padding: 7px 45px;
     border-style: solid;
-    border-radius: 5px;
-    border-width: 0 0 6px;
+    border-radius: 18px;
     margin-top: 10px ;
+    color: #343f56;
 }
 #startbtn:hover{
-    background-color: #F26D43;
+    background-color: #f54748;
+    color: #ffffff;
 } 
 a{
     color: #080807;
