@@ -93,15 +93,41 @@
                     </form>
                 </div>
                 <div class="row">
-                    <div class="col-xl-3 col-lg-4 col-md-6 mb-4 anim">
-                        <div class="p-2 bd-highlight"><i class="fas fa-user-tie"></i> Kang Buncis</div>
-                        <div class="p-2 bd-highlight">
-                            <h5 class="font-weight-bold"><a href="#" class="title">Monitor Terbaik Untuk Coding</a></h5>
+                <?php
+                    // jalankan query untuk menampilkan semua data diurutkan berdasarkan nim
+                    $query = "SELECT * FROM blog ORDER BY id_blog ASC;";
+                    $result = mysqli_query($conn, $query);
+                    if (isset($_POST['cari'])) {
+                        $result = mysqli_query($conn,"SELECT * FROM blog WHERE judul LIKE '%".$_POST['cari']."%' OR penulis LIKE '%".$_POST['cari']."%'"  );
+                    }
+                    //mengecek apakah ada error ketika menjalankan query
+                    if(!$result){
+                        die ("Query Error: ".mysqli_errno($conn).
+                        " - ".mysqli_error($conn));
+                    }
+                    //perulangan untuk element tabel dari data mahasiswa
+                    $ID = 1; //variabel untuk membuat nomor urut
+                    // hasil query akan disimpan dalam variabel $data dalam bentuk array kemudian dicetak dengan perulangan while
+
+                    while($row = mysqli_fetch_assoc($result))
+                    {
+                    ?>
+                        <div class="col-xl-3 col-lg-4 col-md-6 mb-4 anim">
+                            <div class="p-2 bd-highlight"><i class="fas fa-user-tie"></i> <?php echo $row['penulis']; ?></div>
+                            <div class="p-2 bd-highlight">
+                                <h5 class="font-weight-bold"><a href="user-read-blog?id=<?php echo $row['id_blog']; ?>" class="title"><?php echo $row['judul']; ?></a></h5>
+                            </div>
+                            <div class="p-2 bd-highlight">
+                                <p class="desc"><?php echo substr($row['isi_blog'], 0, 50);?></p>
+                            </div>
                         </div>
-                        <div class="p-2 bd-highlight">
-                            <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                        </div>
-                    </div>
+                    <?php
+                        $ID++; //untuk nomor urut terus bertambah 1
+                    }
+
+                    ?>
+
+
                 </div> <!--row div-->
             </div> <!--px-lg-5 div-->
         </div> <!--container-fluid-->
@@ -109,7 +135,6 @@
     <?php
         include'footer.php';
     ?>
-
 
     </body>
 </html>       
