@@ -75,13 +75,13 @@
     <script>
         //merubah background pada div id, hapus komen jika ingin menggunakan script ini
         //document.getElementById("user_write").style.backgroundImage = "url(../src/img/user-write-img.jpg)";
-        $(document).ready(function() {
+/*         $(document).ready(function() {
             Swal.fire(
                 'Panduan Merubah Blog',
                 'Jika terdapat tag HTML seperti "< p > < /p >", anda bisa menhiraukan tag tersebut. Terkecuali jika anda ingin merubah bersama dengan tag HTML nya',
                 'question'
             )
-        });
+        }); */
 
     </script>
     <script>
