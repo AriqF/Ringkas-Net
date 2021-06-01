@@ -25,8 +25,6 @@ if($_SESSION['usertype'] == "1"){
 header("location: 404");
 }
 
-
-
 ?>
     <meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -51,7 +49,7 @@ header("location: 404");
 	<div class="wrapper d-flex align-items-stretch">
     <nav id="sidebar">
         <div class="custom-menu">
-					<button type="button" id="sidebarCollapse" class="btn btn-primary">
+			<button type="button" id="sidebarCollapse" class="btn btn-primary">
 	          <i class="fa fa-bars"></i>
 	          <span class="sr-only">Toggle Menu</span>
 	        </button>
@@ -63,8 +61,8 @@ header("location: 404");
 			<p class="sign"><?php echo $_SESSION['username']; ?></p> <!--add username-->
 			
 	        <ul class="list-unstyled components mb-5">
-	          <li>
-                <a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+	          <li class="<?php if($adminCurrentPage == 'admin_dashboard'){echo 'active';}?>">
+                <a href="admin-dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
 	          </li>
 	          <li>
                 <a href="#"><i class="fas fa-newspaper"></i> Blogs</a>
@@ -72,8 +70,8 @@ header("location: 404");
 	          <li>
                 <a href="#"><i class="fas fa-folder-open"></i> Data Blog</a>
 	          </li>
-	          <li>
-                <a href="#"><i class="fas fa-users"></i> Data Pengguna</a>
+	          <li class="<?php if($adminCurrentPage == 'users_data'){echo 'active';}?>">
+                <a href="admin-users-data"><i class="fas fa-users"></i> Data Pengguna</a>
 	          </li>
 	          <li>
                 <a href="#"><i class="fas fa-star-half-alt"></i> Data Penilaian</a>
