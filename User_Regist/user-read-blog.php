@@ -29,7 +29,6 @@
             echo "<script>alert('Masukkan data id.');window.location='admin-gallery-data';</script>";
         }         
   ?>
-    ?>
     <link href="../src/css/blogStyle.css" type="text/css" rel="stylesheet"> 
 
 
