@@ -1,7 +1,4 @@
-<!doctype html>
-<head>
-  	<title>User Blog</title>
-    <?php
+<?php
         $currentPage = 'user_read_blog'; //rubah sesuai dgn nama halaman, dan tambahkan juga dalam navbar di file header
         include 'header-user.php';
 
@@ -27,11 +24,13 @@
         } else {
             // apabila tidak ada data GET id pada akan di redirect ke admin-unggah
             echo "<script>alert('Masukkan data id.');window.location='admin-gallery-data';</script>";
-        }         
+        }        
+        $title = $data['judul'];
   ?>
+<!doctype html>
+<head>
+  	<title><?php echo $title; ?></title>
     <link href="../src/css/blogStyle.css" type="text/css" rel="stylesheet"> 
-
-
     <header class="blog-header text-center">
         <h1 class="blog-title"><?php echo $data['judul']; ?></h1>
         <p class="lead" style="font-size: 16px;"><span style="color: #24C157; font-size: 17px;"><?php echo $data['penulis']; ?></span> &#8231; 22/01/87</p>
@@ -45,10 +44,7 @@
                 <?php echo $data['isi_blog']; ?>
             </p>
         </div>
-
-    </div>
-
-    
+    </div>  
     <?php 
         include'function-scroll-trigger.php';
     ?>
