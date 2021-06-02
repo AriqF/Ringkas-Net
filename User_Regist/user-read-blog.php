@@ -1,6 +1,7 @@
 <?php
         $currentPage = 'user_read_blog'; //rubah sesuai dgn nama halaman, dan tambahkan juga dalam navbar di file header
         include 'header-user.php';
+
         // mengecek apakah di url ada nilai GET id
         if (isset($_GET['id'])) {
             // ambil nilai id dari url dan disimpan dalam variabel $id
@@ -25,6 +26,10 @@
             echo "<script>alert('Masukkan data id.');window.location='admin-gallery-data';</script>";
         }        
         $title = $data['judul'];
+
+        // Popular post
+        $row_detail = mysqli_query($conn, "SELECT * FROM blog WHERE id_blog='$id'");
+        mysqli_query($conn, "UPDATE blog SET views= views + 1 WHERE id_blog='$id'");
   ?>
 <!doctype html>
 <head>

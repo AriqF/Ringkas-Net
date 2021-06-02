@@ -31,7 +31,12 @@
                 $day = 'End Of The Day';
         }
         $date = date("d/m/Y");
-        
+
+        // Popular post
+        $id = ($_GET['id']);
+        $query = mysqli_query($conn, "SELECT * FROM blog");
+        $popular = mysqli_query($conn, "SELECT * FROM blog ORDER BY views DESC"); 
+
     ?>
     <header class="pagehead">
         <div class="container h-100">
@@ -53,7 +58,20 @@
                 <h2 class="text-center mt-0"><i class="fas fa-chart-line iheader"></i> Sedang Populer</h2>
                 <hr class="divider my-4" style="margin-bottom: 16px;"/>  
                 <div class="row">
+                    <?php if (mysqli_num_rows($popular)){ ?>
+                        <?php while ($rowpopular = mysqli_fetch_array($popular)){ ?>
                     <div class="col-xl-3 col-lg-4 col-md-6 mb-4 anim">
+                        <div class="p-2 bd-highlight"><i class="fas fa-user-tie"></i> <?php echo $rowpopular['penulis'] ?></div>
+                        <div class="p-2 bd-highlight">
+                                <h5 class="font-weight-bold"><a href="user-read-blog?id=<?php echo $rowpopular['id_blog']; ?>" class="title"><?php echo $rowpopular['judul']; ?></a></h5>
+                            </div>
+                        <div class="p-2 bd-highlight">
+                            <p class="desc"><?php echo substr($rowpopular['isi_blog'], 0, 50); ?></p>
+                        </div>
+                    </div>
+                <?php } ?>
+            <?php } ?>
+                    <!-- <div class="col-xl-3 col-lg-4 col-md-6 mb-4 anim">
                         <div class="p-2 bd-highlight"><i class="fas fa-user-tie"></i> Kang Buncis</div>
                         <div class="p-2 bd-highlight">
                             <h5 class="font-weight-bold"><a href="#" class="title">Monitor Terbaik Untuk Coding</a></h5>
@@ -87,16 +105,7 @@
                         </div>
                         <div class="p-2 bd-highlight">
                             <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 mb-4 anim">
-                        <div class="p-2 bd-highlight"><i class="fas fa-user-tie"></i> Kang Buncis</div>
-                        <div class="p-2 bd-highlight">
-                            <h5 class="font-weight-bold"><a href="#" class="title">Monitor Terbaik Untuk Coding</a></h5>
-                        </div>
-                        <div class="p-2 bd-highlight">
-                            <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                        </div>
+                        </div> -->
                     </div>
                 </div> <!--row div-->
             </div> <!--px-lg-5 div-->
