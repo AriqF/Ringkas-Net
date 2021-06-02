@@ -67,8 +67,8 @@ header("location: 404");
 	          <li>
                 <a href="#"><i class="fas fa-newspaper"></i> Blogs</a>
 	          </li>
-	          <li>
-                <a href="#"><i class="fas fa-folder-open"></i> Data Blog</a>
+	          <li class="<?php if($adminCurrentPage == 'data_blog'){echo 'active';}?>">
+                <a href="admin-data-blog"><i class="fas fa-folder-open"></i> Data Blog</a>
 	          </li>
 	          <li class="<?php if($adminCurrentPage == 'users_data'){echo 'active';}?>">
                 <a href="admin-users-data"><i class="fas fa-users"></i> Data Pengguna</a>

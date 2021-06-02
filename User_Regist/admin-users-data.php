@@ -4,38 +4,59 @@
     $adminCurrentPage = 'users_data';
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="id">
 <head>
-  	<title>Admin Dashboard</title>
+  	<title>Admin - Data Pengguna</title>
     <?php
         include 'header-admin.php';
     ?>
     <!--Page Content-->
     <div id="content" class="p-4 p-md-5 pt-5">
             <div class="shadow p-3 mb-5 bg-white rounded">
-                <h2>Account</h2>
+                <h2>Data Pengguna</h2>
                 <table class="table table-striped">
                 <thead>
                       <tr>
-                        <th scope="col">No</th>
-                        <th scope="col">Nama</th>
-                        <th scope="col">E-mail</th>
-                        <th scope="col">User Type</th>
-                        <th scope="col">Aksi</th>
+                        <th class="align-middle text-center" scope="col">No</th>
+                        <th class="align-middle text-center" scope="col">uid</th>
+                        <th class="align-middle text-center" scope="col">Username</th>
+                        <th class="align-middle text-center" scope="col">Nama Lengkap</th>
+                        <th class="align-middle text-center" scope="col">E-mail</th>
+                        <th class="align-middle text-center" scope="col">Tanggal Lahir</th>
+                        <th class="align-middle text-center" scope="col">No. Telp</th>
+                        <th class="align-middle text-center" scope="col">Hak Akses</th>
+                        <th class="align-middle text-center" scope="col">Aksi</th>
                       </tr>
                     </thead>
 
                     <?php $i = 1 ; ?>
 
-                    <?php foreach ($akun as $row) : ?> 
+                    <?php foreach ($akun as $row) : 
+                      if($row["usertype"] == '0'){
+                        $usertype = 'admin';
+                      }
+                      else if($row["usertype"] == '1'){
+                        $usertype = 'user';
+                      }
+                      
+                      ?> 
+                    
                     
                     <tbody>
                       <tr>
-                        <th scope="row"><?= $i; ?></th>
-                        <td><?= $row["namalengkap"]; ?></td>
-                        <td><?= $row["email"]; ?></td>
-                        <td><?= $row["usertype"]; ?></td>
-                        <td>Hapus</a></td>
+                        <th class="align-middle text-center" scope="row"><?= $i; ?></th>
+                        <td class="align-middle text-center"><?= $row["uid"]; ?></td>
+                        <td class="align-middle text-center"><?= $row["username"]; ?></td>
+                        <td class="align-middle text-center"><?= $row["namalengkap"]; ?></td>
+                        <td class="align-middle text-center"><?= $row["email"]; ?></td>
+                        <td class="align-middle text-center"><?= $row["dateofbirth"]; ?></td>
+                        <td class="align-middle text-center"><?= $row["phone_number"]; ?></td>
+                        <td class="align-middle text-center"><?= $usertype; ?></td>
+                        <td class="align-middle text-center">
+                          <a href="#" style="text-decoration:none" onclick="return confirm('Anda yakin akan menghapus data ini?')" >
+                                <button name="edit-pass-btn" type="submit" class="btn btn-danger btn-action" data-toggle="modal" data-target="#exampleModal">Hapus</button>
+                            </a> 
+                        </td>
                       </tr>
                     </tbody>
 
