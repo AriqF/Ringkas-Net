@@ -4,9 +4,9 @@
     /* $akun = query("SELECT * FROM user"); */
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="id">
 <head>
-  	<title>Admin Dashboard</title>
+  	<title>Admin - Dashboard</title>
     <?php
       include 'header-admin.php';
     ?>
