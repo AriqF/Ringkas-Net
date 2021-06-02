@@ -12,20 +12,9 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
         
-        <!--Swiper JS-->
-        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
-        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-
-        <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
-        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
         <!--My css-->
         <link href="../src/css/signinStyle.css" type="text/css" rel="stylesheet"> 
-
-        <!--Swiper.js-->
-        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
-        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-         
+    
         <!--Google Fonts-->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Epilogue&display=swap" rel="stylesheet">
