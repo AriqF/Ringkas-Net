@@ -40,7 +40,7 @@
                     <h1 class="font-weight-semibold ml3 fadeInUp" style="margin-top: 50px;">Selamat Datang Kembali, <?php echo $_SESSION['username']; ?> </h1>
                     <hr class="divider light my-4" style="margin-bottom: 15px;">
                     <h4 class="subtitle fadeInDown"><?php echo $day . ", " . $date ?></h4>
-                    <a href="#" class="btn btn-xl" role="button" id="btn_write">Mulai Menulis</a>
+                    <a href="user-write-blog" class="btn btn-xl" role="button" id="btn_write">Mulai Menulis</a>
                     <p class="subHeader fadeInDown"></p>               
                 </div>
             </div>
