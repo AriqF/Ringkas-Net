@@ -53,7 +53,7 @@ header("location: 404");
     <script src="https://kit.fontawesome.com/babb4f3fd7.js" crossorigin="anonymous"></script>
 
     <!-- Add Ckeditor -->
-    <script src="../src/ckeditor/ckeditor.js" ></script>
+    <script src="../src/ckeditor/ckeditor.js"></script>
     
     </head>
     <body id="page-top">
