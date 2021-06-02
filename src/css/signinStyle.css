@@ -52,9 +52,9 @@ input{
 #startbtn{
     background-color: transparent;
     border-color: #f54748;   
-    font-size: 18px;
+    font-size: 16px;
     min-height: auto;
-    padding: 7px 45px;
+    padding: 6px 45px;
     border-style: solid;
     border-radius: 18px;
     margin-top: 10px ;
