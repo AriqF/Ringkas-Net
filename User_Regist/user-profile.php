@@ -6,7 +6,27 @@
         include 'header-user.php';
         $dateofbirth = $_SESSION['dateofbirth'];
         $user_dateofbirth = strtotime( $dateofbirth);
-        $mysqldatex = date( 'Y-m-d', $dateofbirth )
+        $mysqldatex = date( 'Y-m-d', $dateofbirth );
+        
+        // Forgot Pass
+        $email = $_SESSION['email'];
+        if (isset($_POST['forgot-pass'])) {
+        $mail = $_POST['mail'];
+
+        if (!filter_var($email,FILTER_VALIDATE_EMAIL)) {
+            $errors['mail'] = "<font color='red'; > Email Address Is Invalid </font>";
+        }
+        if (empty($email)) {
+            $errors['mail'] = "<font color='red'; > Email Required </font>";
+        }
+        if (count($errors) === 0) {
+            $sql = "SELECT * FROM user WHERE email='$email' LIMIT 1";
+            $result = mysqli_query($conn, $sql);
+            $user = mysqli_fetch_assoc($result);
+            $token = $user['token'];
+            SendPasswordResetLink($email, $token);
+        }
+    }
     ?>
         <header class="pagehead" id="user_write">
         <div class="container h-100">
@@ -57,9 +77,11 @@
                 <h3 class="fadeInDown" style="margin-bottom:20px; margin-top:30px;">Perbarui Password</h3>
                 <hr class="text-divider mx-1">
                 <p>Untuk memberbarui password anda dan memastikan bahwa itu anda, <br>silahkan klik tombol dan menuju ke halaman penggantian password </p>
-                <button name="submit-btn" type="submit" class="btn btn-renew" data-toggle="modal" data-target="#exampleModal">
-                    Kirim
-                </button>
+                <form action="" method="POST">
+                    <button name="forgot-pass" onclick="runAlert()" type="submit" class="btn btn-renew" data-toggle="modal" data-target="#exampleModal"><input type="text" class="form-control" name="mail"  value="<?php echo $_SESSION['email']; ?> " hidden>
+                        Kirim
+                    </button>
+                </form>
             </div>
         </div>
     </section>
@@ -69,6 +91,20 @@
     ?>
     <script>
         document.getElementById("user_write").style.backgroundImage = "url(../src/img/user-profile.jpg)";
+    </script>
+    <!--import sweet alert-->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+     <script>
+        function runAlert(){
+        Swal.fire(
+        'Silahkan cek email anda!',
+        'Kami telah mengirim link untuk mereset password anda.',
+        'success'
+        ).then(function(){
+            window.location.replace("user-profile");
+        })
+        };
     </script>
 </body>
 </html> 
