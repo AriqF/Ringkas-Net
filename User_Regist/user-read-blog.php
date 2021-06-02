@@ -33,7 +33,7 @@
     <link href="../src/css/blogStyle.css" type="text/css" rel="stylesheet"> 
     <header class="blog-header text-center">
         <h1 class="blog-title"><?php echo $data['judul']; ?></h1>
-        <p class="lead" style="font-size: 16px;"><span style="color: #24C157; font-size: 17px;"><?php echo $data['penulis']; ?></span> &#8231; 22/01/87</p>
+        <p class="lead" style="font-size: 16px;"><span style="color: #24C157; font-size: 17px;"><?php echo $data['penulis']; ?></span> &#8231; <?php echo $data['modified']; ?></p>
         <hr class="divider">
     </header>
     <div class="page-section blog-page">
