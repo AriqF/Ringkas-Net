@@ -45,8 +45,16 @@
     <?php 
         include'function-scroll-trigger.php';
     ?>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         document.getElementById("user_write").style.backgroundImage = "url(../src/img/user-think.jpg)";
+        $(document).ready(function() {
+            Swal.fire(
+            'Ketentuan Mengupload Blog',
+            '<ul> <li>Judul terdiri dari maksimal 50 karakter </li>  <li>Gambar yang diunggah memiliki ketentuan dengan ukuran 1920x1080 px</li></ul>',
+            'question'
+            )
+        });
     </script>
     <script>
         // replace <textarea id="editor1"> with a ckeditor
