@@ -27,9 +27,9 @@
                 <form method="POST" action="function-user-write-blog" enctype="multipart/form-data">
                     <input name="uid" type="text" class="form-control mb-3" value="<?php echo $_SESSION['uid']; ?>" hidden>  
                     <label class="label control-label">Judul Blog</label>
-                    <input required type="text" class="form-control mb-3" name="judul" placeholder="Judul ringkas dari blog anda.." maxlength="">
+                    <input required type="text" class="form-control mb-3" name="judul" placeholder="Judul ringkas dari blog anda.." maxlength="40">
                     <label class="label control-label">Penulis</label>
-                    <input readonly type="text" class="form-control mb-3" name="penulis" value="<?php echo $_SESSION['username']; ?>" maxlength="">
+                    <input readonly type="text" class="form-control mb-3" name="penulis" value="<?php echo $_SESSION['username']; ?>">
                     <label class="label control-label">Isi Blog</label>
                     <textarea required id="description" rows="5" class="form-control mb-3" name="isi_blog" placeholder="Tuangkan inspirasi ringkas anda disni" style="margin-bottom: 10px;"></textarea> <br>
                     <label for="imageUpload">Unggah Gambar Blog</label>
