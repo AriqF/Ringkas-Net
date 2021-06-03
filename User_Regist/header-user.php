@@ -82,15 +82,31 @@ header("location: 404");
                         <a class="nav-link <?php if($currentPage =='user_rate'){echo 'active';}?>" href="user-feedback">Feedback</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index1?logout=1">Keluar</a>
+                        <a class="nav-link" onclick="logOut()" style="cursor: pointer;">Keluar</a>
                     </li>
                     </ul>
                 </div>
             </div>
         </nav>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
             $(".nav .nav-link").on("click", function(){
             $(".nav").find(".active").removeClass("active");
             $(this).addClass("active");
             });
+            function logOut(){
+                Swal.fire({
+                title: 'Anda Yakin Ingin Keluar?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                cancelButtonText: 'Batal',
+                confirmButtonText: 'Keluar'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location = "index1?logout=1";
+                }
+                })
+            }
         </script>
