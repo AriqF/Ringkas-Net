@@ -34,7 +34,7 @@
                     } else {
                       //tampil alert dan akan redirect ke halaman index.php
                       //silahkan ganti index.php sesuai halaman yang akan dituju
-                      echo "<script>alert('Data berhasil ditambah.');window.location='user-dashboard';</script>";
+                      echo "<script>alert('Data berhasil ditambah.');window.location='user-blog';</script>";
                     }
 
               }
@@ -57,7 +57,7 @@
                     } else {
                       //tampil alert dan akan redirect ke halaman index.php
                       //silahkan ganti index.php sesuai halaman yang akan dituju
-                      echo "<script>alert('Data berhasil ditambah.');window.location='user-dashboard';</script>";
+                      echo "<script>alert('Data berhasil ditambah.');window.location='user-blog';</script>";
                     }
   }
 ?>
