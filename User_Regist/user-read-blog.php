@@ -19,11 +19,11 @@
             $data = mysqli_fetch_assoc($result);
             // apabila data tidak ada pada database maka akan dijalankan perintah ini
             if (!count($data)) {
-                echo "<script>alert('Data tidak ditemukan pada database');window.location='admin-gallery-data';</script>";
+                echo "<script>alert('Data tidak ditemukan pada database');window.location='user-dashboard';</script>";
             }
         } else {
             // apabila tidak ada data GET id pada akan di redirect ke admin-unggah
-            echo "<script>alert('Masukkan data id.');window.location='admin-gallery-data';</script>";
+            echo "<script>alert('Masukkan data id.');window.location='user-dashboard';</script>";
         }        
         $title = $data['judul'];
 
@@ -40,10 +40,12 @@
         <p class="lead" style="font-size: 16px;"><span style="color: #24C157; font-size: 17px;"><?php echo $data['penulis']; ?></span> &#8231; <?php
 
         if ($data['modified'] === NULL) {
-            echo $data['created']; 
+            $blog_date = date('d/m/Y', strtotime($data['created'])); 
+            echo $blog_date;
         }
         else{
-             echo $data['modified'];
+            $blog_date = date('d/m/Y', strtotime($data['modified'])); 
+            echo $blog_date; 
         }
     
           ?> 
