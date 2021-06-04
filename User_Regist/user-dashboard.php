@@ -69,44 +69,7 @@
                             <p class="desc"><?php echo substr($rowpopular['isi_blog'], 0, 50); ?></p>
                         </div>
                     </div>
-                <?php } ?>
-            <?php } ?>
-                    <!-- <div class="col-xl-3 col-lg-4 col-md-6 mb-4 anim">
-                        <div class="p-2 bd-highlight"><i class="fas fa-user-tie"></i> Kang Buncis</div>
-                        <div class="p-2 bd-highlight">
-                            <h5 class="font-weight-bold"><a href="#" class="title">Monitor Terbaik Untuk Coding</a></h5>
-                        </div>
-                        <div class="p-2 bd-highlight">
-                            <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 mb-4 anim">
-                        <div class="p-2 bd-highlight"><i class="fas fa-user-tie"></i> Kang Buncis</div>
-                        <div class="p-2 bd-highlight">
-                            <h5 class="font-weight-bold"><a href="#" class="title">Monitor Terbaik Untuk Coding</a></h5>
-                        </div>
-                        <div class="p-2 bd-highlight">
-                            <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 mb-4 anim">
-                        <div class="p-2 bd-highlight"><i class="fas fa-user-tie"></i> Kang Buncis</div>
-                        <div class="p-2 bd-highlight">
-                            <h5 class="font-weight-bold"><a href="#" class="title">Monitor Terbaik Untuk Coding</a></h5>
-                        </div>
-                        <div class="p-2 bd-highlight">
-                            <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-4 col-md-6 mb-4 anim">
-                        <div class="p-2 bd-highlight"><i class="fas fa-user-tie"></i> Kang Buncis</div>
-                        <div class="p-2 bd-highlight">
-                            <h5 class="font-weight-bold"><a href="#" class="title">Monitor Terbaik Untuk Coding</a></h5>
-                        </div>
-                        <div class="p-2 bd-highlight">
-                            <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                        </div> -->
-                    </div>
+                <?php } } ?>
                 </div> <!--row div-->
             </div> <!--px-lg-5 div-->
         </div> <!--container-fluid-->
@@ -161,10 +124,7 @@
                     <?php
                         $ID++; //untuk nomor urut terus bertambah 1
                     }
-
                     ?>
-
-
                 </div> <!--row div-->
             </div> <!--px-lg-5 div-->
         </div> <!--container-fluid-->
