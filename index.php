@@ -62,36 +62,6 @@
 
                         <?php }else{ ?>
                         <?php } ?>
-
-
-
-
-
-<!--                        STYLING FONT
-
-                         <li class="nav-item"><a  style="font-family: 'Benne', serif; font-size:22px; letter-spacing:1px" class="nav-link js-scroll-trigger" href="#about" onclick="aboutBoxAnim()">Tentang Kami</a></li>
-                        <li class="nav-item"><a  style="font-family: 'Benne', serif; font-size:22px; letter-spacing:1px" class="nav-link js-scroll-trigger" href="#trending" onclick="serviceBoxAnim()">Sedang Populer</a></li>
-                        <li class="nav-item"><a  style="font-family: 'Benne', serif; font-size:22px; letter-spacing:1px" class="nav-link js-scroll-trigger" href="#blog" onclick="blogBoxAnim()">Blog</a></li>
-                        <li class="nav-item"><a  style="font-family: 'Benne', serif; font-size:22px; letter-spacing:1px" class="nav-link js-scroll-trigger" href="#contact" onclick="contactBoxAnim()">Kontak</a></li>
-                        <?php  
-                            $url = "User_Regist/controllers/Logout.php";     
-                            ?>
-
-                           <?php if ( !isset($_SESSION["uid"])) { ?>
-                                <li class="nav-item"><a  style="font-family: 'Benne', serif; font-size:22px; letter-spacing:1px" class="nav-link" href="User_Regist/signIn">Masuk</a></li>
-                            
-
-                            <?php }else{ ?>
-                                <li class="nav-item"><a  style="font-family: 'Benne', serif; font-size:22px; letter-spacing:1px" class="nav-link" href="User_Regist/controllers/Logout">Keluar</a></li>
-                            <?php } ?>
-                        
-                        </li>
-                        <?php if ( !isset($_SESSION["uid"])) { ?>
-                            <li class="nav-item"><a  style="font-family: 'Benne', serif; font-size:22px; letter-spacing:1px" class="nav-link" href="User_Regist/signUp">Daftar</a></li>
-                        
-
-                        <?php }else{ ?>
-                        <?php } ?> -->
                         
                         </li>
                     </ul>
@@ -139,7 +109,7 @@
                         <div class="col-xl-3 col-lg-4 col-md-6 mb-4 anim">
                             <div class="p-2 bd-highlight"><i class="fas fa-user-tie"></i> <?php echo $rowpopular['penulis'] ?></div>
                             <div class="p-2 bd-highlight">
-                                    <h5 class="font-weight-bold"><a href="user-read-blog?id=<?php echo $rowpopular['id_blog']; ?>" class="title"><?php echo $rowpopular['judul']; ?></a></h5>
+                                    <h5 class="font-weight-bold"><a href="User_Regist/guest-read-blog?id=<?php echo $rowpopular['id_blog']; ?>" class="title"><?php echo $rowpopular['judul']; ?></a></h5>
                                 </div>
                             <div class="p-2 bd-highlight">
                                 <p class="desc"><?php echo substr($rowpopular['isi_blog'], 0, 50); ?></p>
@@ -206,7 +176,7 @@
                         <div class="col-xl-3 col-lg-4 col-md-6 mb-4 anim">
                             <div class="p-2 bd-highlight"><i class="fas fa-user-tie"></i> <?php echo $row['penulis']; ?></div>
                             <div class="p-2 bd-highlight">
-                                <h5 class="font-weight-bold"><a href="user-read-blog?id=<?php echo $row['id_blog']; ?>" class="title"><?php echo $row['judul']; ?></a></h5>
+                                <h5 class="font-weight-bold"><a href="User_Regist/guest-read-blog?id=<?php echo $row['id_blog']; ?>" class="title"><?php echo $row['judul']; ?></a></h5>
                             </div>
                             <div class="p-2 bd-highlight">
                                 <p class="desc"><?php echo substr($row['isi_blog'], 0, 50);?></p>
