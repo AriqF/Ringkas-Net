@@ -73,11 +73,11 @@ header("location: 404");
 	          <li class="<?php if($adminCurrentPage == 'users_data'){echo 'active';}?>">
                 <a href="admin-users-data"><i class="fas fa-users"></i> Data Pengguna</a>
 	          </li>
-	          <li>
-                <a href="#"><i class="fas fa-star-half-alt"></i> Data Penilaian</a>
+	          <li class="<?php if($adminCurrentPage == 'rating_data'){echo 'active';}?>">
+                <a href="admin-rating-data"><i class="fas fa-star-half-alt"></i> Data Penilaian</a>
 	          </li>
-	          <li>
-                <a href="#"><i class="fas fa-id-card"></i> Profil</a>
+	          <li class="<?php if($adminCurrentPage == 'profile-admin'){echo 'active';}?>">
+                <a href="admin-profile"><i class="fas fa-id-card"></i> Profil</a>
 	          </li>
 			  <li>
                 <a href="index1?logout=1"><i class="fas fa-sign-out-alt"></i> Keluar</a>
