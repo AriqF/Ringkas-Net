@@ -104,7 +104,7 @@
                     <div class="col-12 text-center">
                         <h1 class="font-weight-semibold ml3 fadeInUp">Sebuah Blog Dimana Inspirasi Datang</h1>
                         <hr class="divider light my-4">
-                        <p class="subHeader fadeInDown">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                        <p class="subHeader fadeInDown">Ringkas.Net Ialah Sebuah Blog Dimana User Dapat Menulis Dan Berbagi Inspirasi Satu Dengan Lainnya</p>
                         <a href="#about" class="btn btn-xl js-scroll-trigger" role="button" id="btn_about">Tentang Kami</a>
                     </div>
                 </div>
@@ -118,67 +118,36 @@
                     <div class="col-12 align-middle text-center">
                         <h2 class="text-white mt-0">Semua Inspirasi Perlu Ringkas!</h2>
                         <hr class="divider light my-4" style="border-color:white">
-                        <p class="mb-4" style="color: #EEEAEA;">Sebuah Blog Dimana User Dapat Menulis Dan Berbagi Pengalaman dan Pengetahuan Satu Sama Lainnya<br> Ayo Mulai Menulis dan Saling Berbagi!</p>
+                        <p class="mb-4" style="color: #EEEAEA;">Inspirasi Tidak Bisa Menulis Dengan Sendirinya, <br> Ayo Mulai Menulis dan Berbagi Inspirasi Sekarang!</p>
                         <button type="button" class="btn btn-xl" id="btn_getStart" onclick="showAlert()">Mulai</button>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!--Trending-->
-        <section class="page-section" id="trending" style="padding-top: 60px;">
+        <?php
+            $query = mysqli_query($conn, "SELECT * FROM blog");
+            $popular = mysqli_query($conn, "SELECT * FROM blog ORDER BY views DESC LIMIT 8"); 
+        ?>
+        <section class="page-section" id="trending">
             <div class="container-fluid" id="trendingBox">
                 <div class="px-lg-5">
                     <h2 class="text-center mt-0"><i class="fas fa-chart-line iheader"></i> Sedang Populer</h2>
                     <hr class="divider my-4" style="margin-bottom: 16px;"/>  
                     <div class="row">
+                        <?php if (mysqli_num_rows($popular)){ ?>
+                            <?php while ($rowpopular = mysqli_fetch_array($popular)){ ?>
                         <div class="col-xl-3 col-lg-4 col-md-6 mb-4 anim">
-                            <div class="p-2 bd-highlight"><i class="fas fa-user-tie"></i> Kang Buncis</div>
+                            <div class="p-2 bd-highlight"><i class="fas fa-user-tie"></i> <?php echo $rowpopular['penulis'] ?></div>
                             <div class="p-2 bd-highlight">
-                                <h5 class="font-weight-bold"><a href="#" class="title">Monitor Terbaik Untuk Coding</a></h5>
-                            </div>
+                                    <h5 class="font-weight-bold"><a href="user-read-blog?id=<?php echo $rowpopular['id_blog']; ?>" class="title"><?php echo $rowpopular['judul']; ?></a></h5>
+                                </div>
                             <div class="p-2 bd-highlight">
-                                <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                                <p class="desc"><?php echo substr($rowpopular['isi_blog'], 0, 50); ?></p>
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6 mb-4 anim">
-                            <div class="p-2 bd-highlight"><i class="fas fa-user-tie"></i> Kang Buncis</div>
-                            <div class="p-2 bd-highlight">
-                                <h5 class="font-weight-bold"><a href="#" class="title">Monitor Terbaik Untuk Coding</a></h5>
-                            </div>
-                            <div class="p-2 bd-highlight">
-                                <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6 mb-4 anim">
-                            <div class="p-2 bd-highlight"><i class="fas fa-user-tie"></i> Kang Buncis</div>
-                            <div class="p-2 bd-highlight">
-                                <h5 class="font-weight-bold"><a href="#" class="title">Monitor Terbaik Untuk Coding</a></h5>
-                            </div>
-                            <div class="p-2 bd-highlight">
-                                <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6 mb-4 anim">
-                            <div class="p-2 bd-highlight"><i class="fas fa-user-tie"></i> Kang Buncis</div>
-                            <div class="p-2 bd-highlight">
-                                <h5 class="font-weight-bold"><a href="#" class="title">Monitor Terbaik Untuk Coding</a></h5>
-                            </div>
-                            <div class="p-2 bd-highlight">
-                                <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-4 col-md-6 mb-4 anim">
-                            <div class="p-2 bd-highlight"><i class="fas fa-user-tie"></i> Kang Buncis</div>
-                            <div class="p-2 bd-highlight">
-                                <h5 class="font-weight-bold"><a href="#" class="title">Monitor Terbaik Untuk Coding</a></h5>
-                            </div>
-                            <div class="p-2 bd-highlight">
-                                <p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
-                            </div>
-                        </div>
-                        
-  
+                    <?php } ?>
+                <?php } ?>
+        
                     </div> <!--row div-->
                 </div> <!--px-lg-5 div-->
             </div> <!--container-fluid-->
