@@ -43,6 +43,7 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#trending" onclick="serviceBoxAnim()">Sedang Populer</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#blog" onclick="blogBoxAnim()">Blog</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact" onclick="contactBoxAnim()">Kontak</a></li>
+                        <li class="nav-item"><a class="nav-link" href="User_Regist/guest-feedback.php">Feedback</a></li>
                         <?php  
                             $url = "User_Regist/controllers/Logout.php";     
                             ?>

@@ -41,11 +41,11 @@
                             ?>
 
                            <?php if ( !isset($_SESSION["uid"])) { ?>
-                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../index.php">Beranda</a></li>
+                            <li class="nav-item"><a class="nav-link" href="../index.php">Beranda</a></li>
                                 <li class="nav-item"><a class="nav-link" href="signIn">Masuk</a></li>   
 
                             <?php }else{ ?>
-                                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="user-dashboard">Beranda</a></li>
+                                <li class="nav-item"><a class="nav-link" href="user-dashboard">Beranda</a></li>
                                 <li class="nav-item"><a class="nav-link" href="controllers/Logout">Keluar</a></li>
                             <?php } ?>
                         
