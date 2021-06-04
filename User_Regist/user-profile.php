@@ -4,10 +4,7 @@
     <?php
         $currentPage = 'user_profile';
         include 'header-user.php';
-        $dateofbirth = $_SESSION['dateofbirth'];
-        $user_dateofbirth = strtotime( $dateofbirth);
-        $mysqldatex = date( 'Y-m-d', $dateofbirth );
-        
+
         // Forgot Pass
         $email = $_SESSION['email'];
         if (isset($_POST['forgot-pass'])) {
@@ -32,9 +29,9 @@
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12 text-center">
-                    <h1 class="font-weight-semibold ml3 fadeInUp" style="margin-top: 50px;">Ada Inspirasi Apa Hari ini?, <?php echo $_SESSION['username']; ?> </h1>
+                    <h1 class="font-weight-semibold ml3 fadeInUp" style="margin-top: 50px;">User Profile | <?php echo $_SESSION['username']; ?></h1>
                     <hr class="text-divider mx-auto" style="margin-bottom: 15px;">
-                    <h4 class="subtitle fadeInDown">"Inspirasi Tidak Akan Menjadi Inspirasi Jika Tidak Ditulis"</h4>
+                    <h4 class="subtitle fadeInDown"></h4>
                     <p class="subHeader fadeInDown"></p> 
                 </div>
             </div>
@@ -46,7 +43,11 @@
                 <h3 style="margin-bottom: 12px" class="align-items-center fadeInUp">Data Profil</h3>
                 <p style="font-size: 14px;"></p>
                 <hr class="text-divider mx-1">
-                <form method="POST" action="admin-unggah-proses" enctype="multipart/form-data">
+                <?php 
+                    $dateofbirth = strtotime($_SESSION['dateofbirth']);
+
+                ?>
+                <form method="POST" enctype="multipart/form-data">
                     <label class="label control-label">Nama Lengkap</label>
                     <input type="text" class="form-control mb-3" name="namalengkap" value="<?php echo $_SESSION['namalengkap']; ?>" readonly>
                     <div class="row">
@@ -62,7 +63,7 @@
                     <div class="row">
                         <div class="col">
                             <label class="label control-label">Tanggal Lahir</label> <!--masih ngebug-->
-                            <input type="text" class="form-control" name="dateofbirth" value="<?php echo $mysqldatex ?>" readonly>
+                            <input type="text" class="form-control" name="dateofbirth" value="<?php echo date('Y-m-d', $_SESSION['dateofbirth']); ?>" readonly>
                         </div>
                         <div class="col">
                             <label class="label control-label">Nomor Handphone</label>
