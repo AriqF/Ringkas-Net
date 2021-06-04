@@ -35,7 +35,7 @@
         // Popular post
         $id = ($_GET['id']);
         $query = mysqli_query($conn, "SELECT * FROM blog");
-        $popular = mysqli_query($conn, "SELECT * FROM blog ORDER BY views DESC"); 
+        $popular = mysqli_query($conn, "SELECT * FROM blog ORDER BY views DESC LIMIT 8"); 
 
     ?>
     <header class="pagehead">
