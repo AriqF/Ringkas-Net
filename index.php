@@ -2,6 +2,19 @@
 
 	session_start();	
     require 'User_Regist/config/db.php';
+
+    //MEMBUAT PAGINASI
+
+    $per_laman = 8; // batas posting hanya sampai 8 blog 
+    $laman_sekarang = 1; // deklarasi laman sekarang = 1
+    if(isset($_GET['laman']))
+    {
+        $laman_sekarang = $_GET['laman'];
+        $laman_sekarang = ($laman_sekarang > 1) ? $laman_sekarang : 1;
+    }
+    $total_data = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM blog ORDER BY id_blog DESC"));
+    $total_laman = ceil($total_data/$per_laman); // pembulatan angka laman 
+    $awal = ($laman_sekarang - 1) * $per_laman; // laman sekarang
 ?>
 
 <html>
@@ -157,7 +170,7 @@
                 <div class="row">
                 <?php
                     // jalankan query untuk menampilkan semua data diurutkan berdasarkan nim
-                    $query = "SELECT * FROM blog ORDER BY id_blog ASC;";
+                    $query = "SELECT * FROM blog ORDER BY id_blog ASC LIMIT $per_laman OFFSET $awal";
                     $result = mysqli_query($conn, $query);
                     if (isset($_POST['cari'])) {
                         $result = mysqli_query($conn,"SELECT * FROM blog WHERE judul LIKE '%".$_POST['cari']."%' OR penulis LIKE '%".$_POST['cari']."%'"  );
@@ -193,6 +206,43 @@
                 </div> <!--row div-->
             </div> <!--px-lg-5 div-->
         </div> <!--container-fluid-->
+
+        <!-- LAMAN PAGINASI -->
+
+               <?php if(isset($total_laman)) {?>
+        <?php if($total_laman > 1) {?>
+
+
+        <nav class="nav justify-content-center">
+          <ul class="pagination">
+            <?php if($laman_sekarang > 1) {?>
+            <li>  
+              <a href="index?laman=<?php echo $laman_sekarang - 1 ?>">
+                <button class="btn btn-warning btn-lg" data-toggle="modal" data-target="#exampleModal" style="margin-top: 10px; border-radius: 5px; width:fit-content; color: white;margin-top:18px; margin-right:15px;">Previous Page</button>
+              </a>  
+            </li> 
+          <?php } else {?>
+            <li class="nav-link disabled" aria-disabled="true" tabindex="-1">
+                <button class="btn btn-warning btn-lg disabled" data-toggle="modal" data-target="#exampleModal" style="margin-top: 10px; border-radius: 5px; width:fit-content; color: white;">Previous Page</button> 
+            </li> 
+          <?php } ?>
+          <?php if($laman_sekarang < $total_laman) {?>
+            <li>
+              <a href="index?laman=<?php echo $laman_sekarang + 1 ?>">
+                <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#exampleModal" style="margin-top: 10px; border-radius: 5px; width:fit-content; margin-top:18px;" >Next Page</button>
+              </a>  
+            </li> 
+            <?php } else {?>
+            <li class="nav-link disabled" aria-disabled="true" tabindex="-1">
+                <button class="btn btn-info btn-lg disabled" data-toggle="modal" data-target="#exampleModal" style="margin-top: 10px; border-radius: 5px; width:fit-content" >Next Page</button>  
+            </li>
+          <?php } ?>
+          </ul> 
+        </nav>
+        <?php } ?>
+        <?php } ?> 
+
+        <!-- END OF LAMAN PAGINASI -->
     </section>
 
         <!--Contact-->
