@@ -99,8 +99,8 @@ header("location: 404");
                 title: 'Anda Yakin Ingin Keluar?',
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
                 cancelButtonText: 'Batal',
                 confirmButtonText: 'Keluar'
                 }).then((result) => {
