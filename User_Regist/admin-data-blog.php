@@ -43,7 +43,7 @@
                             <a href="#" style="text-decoration:none"> 
                                 <button name="edit-pass-btn" type="submit" class="btn btn-success btn-action" data-toggle="modal" data-target="#exampleModal" style="padding: 6px 23px">Edit</button>
                             </a>    
-                            <a href="#" style="text-decoration:none" onclick="return confirm('Anda yakin akan menghapus data ini?')" >
+                            <a href="function-admin-delete-blog?id=<?php echo $row['id_blog']; ?>" style="text-decoration:none" onclick="return confirm('Anda yakin akan menghapus data ini?')" >
                                 <button name="edit-pass-btn" type="submit" class="btn btn-danger btn-action" data-toggle="modal" data-target="#exampleModal">Hapus</button>
                             </a> 
                         </td>
