@@ -5,6 +5,11 @@
         $currentPage = 'user_profile';
         include 'header-user.php';
 
+        $uid = $_SESSION['uid'];
+        $queryDate = query("SELECT dateofbirth FROM user WHERE uid='$uid'");
+        foreach ($queryDate as $row) :
+            $userBirth = date( 'd-m-Y', strtotime($row["dateofbirth"]));
+        endforeach;
         // Forgot Pass
         $email = $_SESSION['email'];
         if (isset($_POST['forgot-pass'])) {
@@ -43,10 +48,7 @@
                 <h3 style="margin-bottom: 12px" class="align-items-center fadeInUp">Data Profil</h3>
                 <p style="font-size: 14px;"></p>
                 <hr class="text-divider mx-1">
-                <?php 
-                    $dateofbirth = strtotime($_SESSION['dateofbirth']);
 
-                ?>
                 <form method="POST" enctype="multipart/form-data">
                     <label class="label control-label">Nama Lengkap</label>
                     <input type="text" class="form-control mb-3" name="namalengkap" value="<?php echo $_SESSION['namalengkap']; ?>" readonly>
@@ -62,8 +64,8 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <label class="label control-label">Tanggal Lahir</label> <!--masih ngebug-->
-                            <input type="text" class="form-control" name="dateofbirth" value="<?php echo date('Y-m-d', $_SESSION['dateofbirth']); ?>" readonly>
+                            <label class="label control-label">Tanggal Lahir</label>
+                            <input type="text" class="form-control" name="dateofbirth" value="<?php echo $userBirth; ?>" readonly>
                         </div>
                         <div class="col">
                             <label class="label control-label">Nomor Handphone</label>
