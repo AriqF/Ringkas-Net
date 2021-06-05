@@ -34,7 +34,7 @@
                         <th class="align-middle text-center" scope="row"><?= $i; ?></th>
                         <td class="align-middle text-center"><?= $row["rating"]; ?></td>
                         <td class="align-middle text-center"><?= $row["komentar"]; ?></td>
-                        <td class="align-middle text-center"><?= $row["namapenilai"]; ?></td>
+                        <td class="align-middle text-center"><?= $row["nama_penilai"]; ?></td>
                         <td class="align-middle text-center"><?= $row["timestamp"]; ?></td>
                       </tr>
                     </tbody>

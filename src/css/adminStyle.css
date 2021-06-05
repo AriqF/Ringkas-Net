@@ -26,7 +26,7 @@
   --danger: #dc3545;
   --light: #f8f9fa;
   --dark: #343a40;
-  --navbarColor: #2f69de;
+  --navbarColor: #4764e2;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
@@ -77,6 +77,19 @@ body {
 }
 .img-blogdata{
   transform: scale(0.5);
+}
+
+.btn-upload{
+  background-color: transparent;
+  border-radius: 18px;
+  border: 1px solid #34a245;
+  padding: 6px 60px;
+  color: #34a245;
+  margin-top: 10px;
+}
+.btn-upload:hover{
+  background-color: #34a245;
+  color: white;
 }
 
 /* end of custom code */
