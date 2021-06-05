@@ -53,7 +53,7 @@
                         <td class="align-middle text-center"><?= $row["phone_number"]; ?></td>
                         <td class="align-middle text-center"><?= $usertype; ?></td>
                         <td class="align-middle text-center">
-                          <a href="#" style="text-decoration:none" onclick="return confirm('Anda yakin akan menghapus data ini?')" >
+                          <a href="function-admin-delete-user?id=<?php echo $row['uid']; ?>" style="text-decoration:none" onclick="return confirm('Anda yakin akan menghapus data ini?')">
                                 <button name="edit-pass-btn" type="submit" class="btn btn-danger btn-action" data-toggle="modal" data-target="#exampleModal">Hapus</button>
                             </a> 
                         </td>
