@@ -1,6 +1,10 @@
 <?php
  require_once 'controllers/authController.php'; 
 
+ if(isset($_SESSION['uid'])){
+    header("location: 404");
+    }
+
  ?>
 <!DOCTYPE html>
 <html>

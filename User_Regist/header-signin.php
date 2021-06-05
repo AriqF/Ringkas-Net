@@ -4,9 +4,7 @@ require_once 'controllers/authController.php';
 
 // agar user tidak bisa akses
 error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
-if($_SESSION['uid'] ){
-header("location: 404");
-}
+
 ?>
        
         <!-- Required meta tags -->
