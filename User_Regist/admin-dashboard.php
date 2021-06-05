@@ -65,7 +65,7 @@
 
 
             </div>
-            <div id="chart" style="height: 260px;"></div>     
+            <div id="chart" style="height: max-content;"></div>     
           </div>
         </div>
         </div>
