@@ -1,6 +1,6 @@
 <?php  
     require_once 'controllers/authController.php'; 
-    $akun = query("SELECT * FROM user");
+    $akun = query("SELECT * FROM user WHERE usertype = 1");
     $adminCurrentPage = 'users_data';
 ?>
 <!doctype html>
