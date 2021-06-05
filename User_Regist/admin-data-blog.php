@@ -1,6 +1,6 @@
 <?php  
     require_once 'controllers/authController.php'; 
-    $data_blog = query("SELECT d.id_blog, d.uid, d.judul, d.penulis, d.isi_blog, d.gambar FROM blog AS d JOIN user AS u GROUP BY d.judul ORDER BY id_blog ASC;");
+    $data_blog = query("SELECT d.id_blog, d.uid, d.views, d.judul, d.penulis, d.isi_blog, d.gambar FROM blog AS d JOIN user AS u GROUP BY d.judul ORDER BY id_blog ASC;");
     $adminCurrentPage = 'data_blog';
 ?>
 <!doctype html>
@@ -19,6 +19,7 @@
                       <tr>
                         <th class="align-middle text-center" scope="col">No</th>
                         <th class="align-middle text-center" scope="col">ID blog</th>
+                        <th class="align-middle text-center" scope="col">Views</th>
                         <th class="align-middle text-center" scope="col">Penulis</th>
                         <th class="align-middle text-center" scope="col">Judul</th>
                         <th class="align-middle text-center" scope="col">Isi Blog</th>
@@ -35,8 +36,9 @@
                       <tr>
                         <th class="align-middle text-center" scope="row"><?= $i; ?></th>
                         <td class="align-middle text-center"><?= $row["id_blog"]; ?></td>
+                        <td class="align-middle text-center"><?= $row["views"]; ?></td>
                         <td class="align-middle text-center"><?= $row["penulis"]; ?></td>
-                        <td class="align-middle text-center"><?= $row["judul"]; ?></td>
+                        <td class="align-middle text-center"><a style = "color: inherit; text-decoration: none;" href="admin-read-blog?id=<?php echo $row['id_blog']; ?>" class="title"><?php echo $row['judul']; ?></a></td>
                         <td class="align-middle text-center"><?= substr($row["isi_blog"], 0, 50); ?></td>
                         <td class="align-middle text-center"><img src="image/<?php echo $row['gambar']; ?>" class="img-thumbnail img-fluid w-50"> </td>
                         <td class="align-middle text-center">  

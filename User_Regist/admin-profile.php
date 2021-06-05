@@ -6,14 +6,14 @@
 <!doctype html>
 <html lang="id">
 <head>
-  	<title>Admin - Data Blog</title>
+  	<title>Admin - Profile</title>
     <?php
         include 'header-admin.php';
     ?>
     <!--Page Content-->
     <div id="content" class="p-4 p-md-5 pt-5">
             <div class="shadow p-3 mb-5 bg-white rounded">
-                <h2>Data Blog</h2>
+                <h2>Admin Profile</h2>
                 <form method="POST" enctype="multipart/form-data">
                     <label class="label control-label">Nama Lengkap</label>
                     <input type="text" class="form-control mb-3" name="namalengkap" value="<?php echo $_SESSION['namalengkap']; ?>" readonly>

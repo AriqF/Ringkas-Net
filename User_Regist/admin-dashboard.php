@@ -1,8 +1,28 @@
 <?php
     require_once 'controllers/authController.php'; 
     $adminCurrentPage = 'admin_dashboard';
-    /* $akun = query("SELECT * FROM user"); */
+
+    $query =mysqli_query($conn, "SELECT * FROM blog");
+    $admin =mysqli_query($conn, "SELECT * FROM user where usertype = 0");
+    $user =mysqli_query($conn, "SELECT * FROM user where usertype = 1");
+    $rating =mysqli_query($conn, "SELECT * FROM rating");
+
+    //menghitung total views
+    while ($data =mysqli_fetch_array($query)){
+    // looping atribut jumlah 
+      $jumlah[]=$data['views'];
+    }
+    //total
+    $total = array_sum($jumlah); 
+
+    //jumlah blog
+    $jumlah_blog = mysqli_num_rows($query);
+    $jumlah_admin = mysqli_num_rows($admin);
+    $jumlah_user = mysqli_num_rows($user);
+    $jumlah_review = mysqli_num_rows($rating);
+    
 ?>
+
 <!doctype html>
 <html lang="id">
 <head>
@@ -20,8 +40,9 @@
                 <div class="card text-white bg-primary">
                   <div class="card-body card-body pb-0 d-flex justify-content-between align-items-start">
                     <div>
-                      <div class="text-value-lg">1233</div>
-                      <div>Isi apa</div>
+                      <div class="text-value-lg"><?php echo "$total";?>
+                      </div>
+                      <div>Jumlah Total Semua Views Blog</div>
                     </div>
                     <div class="btn-group">
                       <button class="btn btn-transparent dropdown-toggle p-0" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -83,10 +104,10 @@
   new Morris.Bar({
   element: 'chart',
   data: [
-    { entity: 'User', value:  5 },
-    { entity: 'Admin', value:  2 },
-    { entity: 'Karya', value:  12 },
-    { entity: 'Review', value:  8 }
+    { entity: 'User', value:  <?php echo "$jumlah_user";?> },
+    { entity: 'Admin', value: <?php echo "$jumlah_admin";?>},
+    { entity: 'Blog', value:  <?php echo "$jumlah_blog";?> },
+    { entity: 'Review', value: <?php echo "$jumlah_review";?> }
   ],
   xkey: 'entity',
   ykeys: ['value'],

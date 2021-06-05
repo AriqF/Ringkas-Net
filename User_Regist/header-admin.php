@@ -69,9 +69,6 @@ header("location: 404");
 	          <li class="<?php if($adminCurrentPage == 'admin_dashboard'){echo 'active';}?>">
                 <a href="admin-dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
 	          </li>
-	          <li>
-                <a href="#"><i class="fas fa-newspaper"></i> Blogs</a>
-	          </li>
 	          <li class="<?php if($adminCurrentPage == 'data_blog'){echo 'active';}?>">
                 <a href="admin-data-blog"><i class="fas fa-folder-open"></i> Data Blog</a>
 	          </li>
