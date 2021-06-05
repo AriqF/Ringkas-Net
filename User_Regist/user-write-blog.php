@@ -51,7 +51,7 @@
         $(document).ready(function() {
             Swal.fire(
             'Ketentuan Mengupload Blog',
-            '<ul> <li>Judul terdiri dari maksimal 50 karakter </li>  <li>Gambar yang diunggah memiliki ketentuan dengan ukuran 1920x1080 px</li></ul>',
+            '<ul> <li>Judul terdiri dari maksimal 50 karakter </li>  <li>Gambar yang diunggah memiliki ketentuan dengan ukuran 1920x1080 px</li><li>Dan jangan lupa untuk menulisnya dengan ringkas!</li></ul>',
             'question'
             )
         });

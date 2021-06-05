@@ -59,7 +59,7 @@
                         </div>
                         <div class="col">
                             <label class="label control-label">Username</label>
-                            <input type="text" class="form-control mb-3" name="username" value="<?php echo $_SESSION['username']; ?>">
+                            <input readonly type="text" class="form-control mb-3" name="username" value="<?php echo $_SESSION['username']; ?>">
                         </div>
                     </div>
                     <div class="row">
@@ -72,9 +72,9 @@
                             <input type="text" class="form-control mb-3" name="phone_number" value="<?php echo $_SESSION['phone_number']; ?>" readonly>
                         </div>
                     </div>
-                    <button name="submit-btn" type="submit" class="btn btn-upload" data-toggle="modal" data-target="#exampleModal">
+                   <!--  <button name="submit-btn" type="submit" class="btn btn-upload" data-toggle="modal" data-target="#exampleModal">
                         Perbarui
-                    </button>
+                    </button> -->
                 </form>
 
                 <h3 class="fadeInDown" style="margin-bottom:20px; margin-top:30px;">Perbarui Password</h3>

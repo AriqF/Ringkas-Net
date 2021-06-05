@@ -32,7 +32,7 @@
                             <hr style="margin-bottom: 15px;">
                             <form>
                                 <label class="label control-label">Nama Lengkap</label>
-                                <input type="text" class="form-control" name="namalengkap" placeholder="namalengkap">
+                                <input type="text" class="form-control" name="namalengkap" placeholder="nama lengkap">
 
                                 <label class="label control-label">Username</label>
                                 <input type="text" class="form-control" name="username" placeholder="username">
@@ -83,5 +83,15 @@
         <script>
             document.getElementById("pictBox").style.backgroundImage = "url(../src/img/signup-img.jpg)";
         </script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(document).ready(function() {
+            Swal.fire(
+            'Ketentuan Daftar',
+            '<ul> <li>Isilah nama lengkap anda dengan benar </li>  <li>Pastikan Username yang anda buat <i>unik</i></li> <li>Isilah email anda dengan benar yang belum pernah terdaftar pada website ini </li> <li>Isilah Tanggal Lahir anda dengan benar </li> <li>Isilah Nomor Telepon anda dengan benar </li> <li>Pastikan menggunakan password dengan kombinasi yang kuat </li></ul>',
+            'question'
+            )
+        });
+    </script>
     </body>
 </html>

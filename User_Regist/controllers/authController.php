@@ -70,7 +70,7 @@ if (isset($_POST['signup-btn'])) {
     $stmt->close();
 
     if ($userCount > 0) {
-        $errors['username'] = "<font color='red'; > Username sudah di pakai </font>";
+        $errors['username'] = "<font color='red'; > Username Already Used </font>";
     }
 
     $emailQuery = "SELECT * FROM user WHERE email=? LIMIT 1";
@@ -82,7 +82,7 @@ if (isset($_POST['signup-btn'])) {
     $stmt->close();
 
     if ($userCount > 0) {
-        $errors['email'] = "<font color='red'; > Email sudah di pakai </font>";
+        $errors['email'] = "<font color='red'; > Email Already Used </font>";
     }
     
     $dateofbirthQuery = "SELECT * FROM user WHERE dateofbirth=? LIMIT 1";
@@ -102,7 +102,7 @@ if (isset($_POST['signup-btn'])) {
     $stmt->close();
 
     if ($userCount > 0) {
-        $errors['phone_number'] = "<font color='red'; >Nomor Telp sudah di pakai </font>";
+        $errors['phone_number'] = "<font color='red'; >Nomor Already Used </font>";
     }
 
 
