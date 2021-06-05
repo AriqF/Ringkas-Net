@@ -39,10 +39,7 @@
                         <td class="align-middle text-center"><?= $row["judul"]; ?></td>
                         <td class="align-middle text-center"><?= substr($row["isi_blog"], 0, 50); ?></td>
                         <td class="align-middle text-center"><img src="image/<?php echo $row['gambar']; ?>" class="img-thumbnail img-fluid w-50"> </td>
-                        <td class="align-middle text-center">
-                            <a href="#" style="text-decoration:none"> 
-                                <button name="edit-pass-btn" type="submit" class="btn btn-success btn-action" data-toggle="modal" data-target="#exampleModal" style="padding: 6px 23px">Edit</button>
-                            </a>    
+                        <td class="align-middle text-center">  
                             <a href="function-admin-delete-blog?id=<?php echo $row['id_blog']; ?>" style="text-decoration:none" onclick="return confirm('Anda yakin akan menghapus data ini?')" >
                                 <button name="edit-pass-btn" type="submit" class="btn btn-danger btn-action" data-toggle="modal" data-target="#exampleModal">Hapus</button>
                             </a> 
