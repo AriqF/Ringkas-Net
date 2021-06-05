@@ -71,8 +71,8 @@ header("location: 404");
                             Blog Saya
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item <?php if($currentPage =='user_write_blog'){echo 'active';}?>" href="user-write-blog">Menulis</a>
-                            <a class="dropdown-item <?php if($currentPage =='user_blog'){echo 'active';}?>" href="user-blog">Blog Saya</a>
+                            <a class="dropdown-item <?php if($currentPage =='user_write_blog'){echo 'active';}?>" href="user-write-blog"><i class="fa fa-pencil" aria-hidden="true"></i>&nbsp;Menulis</a>
+                            <a class="dropdown-item <?php if($currentPage =='user_blog'){echo 'active';}?>" href="user-blog"> <i class="fas fa-file-alt"></i>&nbsp;Blog Saya</a>
                         </div>
                     </li>
                     <li class="nav-item">
