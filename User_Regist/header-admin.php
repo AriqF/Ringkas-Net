@@ -60,7 +60,7 @@ header("location: 404");
 	        </button>
         </div>
         <div class="p-4">
-            <h1><a href="index.html" class="logo">Ringkas.Net <span>Dimana Inspirasi Berada</span></a></h1>
+            <h1><a href="admin-dashboard" class="logo">Ringkas.Net <span>Dimana Inspirasi Berada</span></a></h1>
 			<hr style="border-top: 1px solid white; margin-bottom: 12px;">
 			<h4 style="color: white;">Selamat Datang!</h4>
 			<p class="sign"><?php echo $_SESSION['username']; ?></p> <!--add username-->
