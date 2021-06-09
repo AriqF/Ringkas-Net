@@ -10,7 +10,7 @@
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12 text-center">
-                    <h1 class="font-weight-semibold ml3 fadeInUp" style="margin-top: 50px;">List dari Blog kamu <?php echo $_SESSION['username']; ?></h1>
+                    <h1 class="font-weight-semibold ml3 fadeInUp" style="margin-top: 50px;">List dari Blog kamu, <?php echo $_SESSION['username']; ?></h1>
                     <hr class="divider light my-4" style="margin-bottom: 15px;">
                     <h4 class="subtitle fadeInDown">"Inspirasi Tidak Akan Menjadi Inspirasi Jika Tidak Ditulis"</h4>
                     <p class="subHeader fadeInDown"></p> 
