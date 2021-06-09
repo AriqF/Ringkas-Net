@@ -6,6 +6,31 @@
     foreach ($queryDate as $row) :
         $userBirth = date( 'd-m-Y', strtotime($row["dateofbirth"]));
     endforeach;
+
+    $uid = $_SESSION['uid'];
+        $queryDate = query("SELECT dateofbirth FROM user WHERE uid='$uid'");
+        foreach ($queryDate as $row) :
+            $userBirth = date( 'd-m-Y', strtotime($row["dateofbirth"]));
+        endforeach;
+        // Forgot Pass
+        $email = $_SESSION['email'];
+        if (isset($_POST['forgot-pass'])) {
+        $mail = $_POST['mail'];
+
+        if (!filter_var($email,FILTER_VALIDATE_EMAIL)) {
+            $errors['mail'] = "<font color='red'; > Email Address Is Invalid </font>";
+        }
+        if (empty($email)) {
+            $errors['mail'] = "<font color='red'; > Email Required </font>";
+        }
+        if (count($errors) === 0) {
+            $sql = "SELECT * FROM user WHERE email='$email' LIMIT 1";
+            $result = mysqli_query($conn, $sql);
+            $user = mysqli_fetch_assoc($result);
+            $token = $user['token'];
+            SendPasswordResetLink($email, $token);
+        }
+    }
 ?>
 
 <!doctype html>
@@ -55,5 +80,19 @@
     <!--end of page content-->
 
 <script src="../src/js/adminScript.js"></script>
+<!--import sweet alert-->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+     <script>
+        function runAlert(){
+        Swal.fire(
+        'Silahkan cek email anda!',
+        'Kami telah mengirim link untuk mereset password anda.',
+        'success'
+        ).then(function(){
+            window.location.replace("user-profile");
+        })
+        };
+    </script>
 </body>
 </html>
