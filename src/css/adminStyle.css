@@ -92,6 +92,19 @@ body {
   color: white;
 }
 
+.btn-renew{
+  background-color: transparent;
+  border-radius: 18px;
+  border: 1px solid #7070b8;
+  padding: 6px 40px;
+  color: #7070b8;
+  margin-top: 10px;
+}
+.btn-renew:hover{
+  background-color: #7070b8;
+  color: white;
+}
+
 /* end of custom code */
 hr {
   -webkit-box-sizing: content-box;

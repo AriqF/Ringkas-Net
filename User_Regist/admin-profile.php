@@ -29,7 +29,7 @@
                         </div>
                         <div class="col">
                             <label class="label control-label">Username</label>
-                            <input type="text" class="form-control mb-3" name="username" value="<?php echo $_SESSION['username']; ?>">
+                            <input type="text" class="form-control mb-3" name="username" value="<?php echo $_SESSION['username']; ?>" readonly>
                         </div>
                     </div>
                     <div class="row">
@@ -42,8 +42,11 @@
                             <input type="text" class="form-control mb-3" name="phone_number" value="<?php echo $_SESSION['phone_number']; ?>" readonly>
                         </div>
                     </div>
-                    <button name="submit-btn" type="submit" class="btn btn-success">
-                        Perbarui
+                    <h3 class="fadeInDown" style="margin-bottom:20px; margin-top:30px;">Perbarui Password</h3>
+                    <hr class="text-divider mx-1">
+                    <p>Untuk memberbarui password anda dan memastikan bahwa itu anda, <br>silahkan klik tombol dan menuju ke halaman penggantian password </p>
+                    <button name="forgot-pass" onclick="runAlert()" type="submit" class="btn-renew" data-toggle="modal" data-target="#exampleModal"><input type="text" class="form-control" name="mail"  value="<?php echo $_SESSION['email']; ?> " hidden>
+                        Kirim
                     </button>
                 </form>
             </div>
