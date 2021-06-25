@@ -1,7 +1,7 @@
 <?php  
 
 	session_start();	
-    require 'User_Regist/config/db.php';
+    require 'Authentication/config/db.php';
 
     //MEMBUAT PAGINASI
 
@@ -56,22 +56,22 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#trending" onclick="serviceBoxAnim()">Sedang Populer</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#blog" onclick="blogBoxAnim()">Blog</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact" onclick="contactBoxAnim()">Kontak</a></li>
-                        <li class="nav-item"><a class="nav-link" href="User_Regist/guest-feedback.php">Feedback</a></li>
+                        <li class="nav-item"><a class="nav-link" href="guest/feedback">Feedback</a></li>
                         <?php  
-                            $url = "User_Regist/controllers/Logout.php";     
+                            $url = "Authentication/controllers/Logout.php";     
                             ?>
 
                            <?php if ( !isset($_SESSION["uid"])) { ?>
-                                <li class="nav-item"><a class="nav-link" href="User_Regist/signIn">Masuk</a></li>
+                                <li class="nav-item"><a class="nav-link" href="login/">Masuk</a></li>
                             
 
                             <?php }else{ ?>
-                                <li class="nav-item"><a class="nav-link" href="User_Regist/controllers/Logout">Keluar</a></li>
+                                <li class="nav-item"><a class="nav-link" href="Authentication/controllers/Logout">Keluar</a></li>
                             <?php } ?>
                         
                         </li>
                         <?php if ( !isset($_SESSION["uid"])) { ?>
-                            <li class="nav-item"><a class="nav-link" href="User_Regist/signUp">Daftar</a></li>
+                            <li class="nav-item"><a class="nav-link" href="register/">Daftar</a></li>
                         
 
                         <?php }else{ ?>
@@ -123,7 +123,7 @@
                         <div class="col-xl-3 col-lg-4 col-md-6 mb-4 anim">
                             <div class="p-2 bd-highlight"><i class="fas fa-user-tie"></i> <?php echo $rowpopular['penulis'] ?></div>
                             <div class="p-2 bd-highlight">
-                                    <h5 class="font-weight-bold"><a href="User_Regist/guest-read-blog?id=<?php echo $rowpopular['id_blog']; ?>" class="title"><?php echo $rowpopular['judul']; ?></a></h5>
+                                    <h5 class="font-weight-bold"><a href="guest/read-blog?id=<?php echo $rowpopular['id_blog']; ?>" class="title"><?php echo $rowpopular['judul']; ?></a></h5>
                                 </div>
                             <div class="p-2 bd-highlight">
                                 <p class="desc"><?php echo substr($rowpopular['isi_blog'], 0, 50); ?></p>
@@ -190,7 +190,7 @@
                         <div class="col-xl-3 col-lg-4 col-md-6 mb-4 anim">
                             <div class="p-2 bd-highlight"><i class="fas fa-user-tie"></i> <?php echo $row['penulis']; ?></div>
                             <div class="p-2 bd-highlight">
-                                <h5 class="font-weight-bold"><a href="User_Regist/guest-read-blog?id=<?php echo $row['id_blog']; ?>" class="title"><?php echo $row['judul']; ?></a></h5>
+                                <h5 class="font-weight-bold"><a href="guest/read-blog?id=<?php echo $row['id_blog']; ?>" class="title"><?php echo $row['judul']; ?></a></h5>
                             </div>
                             <div class="p-2 bd-highlight">
                                 <p class="desc"><?php echo substr($row['isi_blog'], 0, 50);?></p>
@@ -301,7 +301,7 @@
                 denyButtonText: `Belum`,
                 }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location = "User_Regist/signIn";
+                    window.location = "login/";
                 } else if (result.isDenied) {
                     Swal.fire({
                     icon: 'question',
@@ -311,7 +311,7 @@
                     CancelButtonText: `Nanti Saja`,
                     }).then((result) => {
                     if (result.isConfirmed) {
-                        window.location = "User_Regist/signUp";
+                        window.location = "register/";
                     } 
                     })
                 }

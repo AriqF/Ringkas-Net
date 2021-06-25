@@ -1,5 +1,5 @@
 #For those who search document that's not included
-ErrorDocument 404 http://localhost/Ringkas-Net/User_Regist/404
+ErrorDocument 404 http://localhost/Ringkas-Net/404
 #Delete .php Extension
 <IfModule mod_rewrite.c>
 RewriteEngine on
